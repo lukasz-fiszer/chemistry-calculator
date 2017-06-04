@@ -15,4 +15,5 @@
 @section('body')
 	@include('layout.nav')
 	@include('layout.header')
+	@include('helper.chemical-form')
 @endsection
