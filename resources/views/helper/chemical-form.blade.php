@@ -1,6 +1,5 @@
 <section class="section">
 	<div class="container">
-		{{-- <h2 class="subtitle">Type in chemical equation, formula or element name</h2> --}}
 		<form>
 			<h2 class="label is-medium"><label>Type in chemical equation, formula or element name</label></h2>
 			<div class="field has-addons">
