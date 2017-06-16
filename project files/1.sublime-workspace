@@ -520,11 +520,21 @@
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/chemistry-calculator/server.php",
+			"file": "/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/IndexController.php",
 			"settings":
 			{
-				"buffer_size": 563,
+				"buffer_size": 287,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/chemistry-calculator/resources/views/layout.blade.php",
+			"settings":
+			{
+				"buffer_size": 606,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -588,6 +598,21 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/chemistry-calculator/composer.json",
+		"/C/xampp/htdocs/chemistry-calculator/.gitignore",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/index.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/footer.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/public/css/style.css",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/nav.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/frontpage-header.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/header.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/base.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
+		"/C/xampp/htdocs/chemistry-calculator/server.php",
+		"/C/xampp/htdocs/photo2/.gitignore",
+		"/C/xampp/htdocs/chemistry-calculator/composer.lock",
+		"/C/xampp/htdocs/chemistry-calculator/.env",
 		"/C/xampp/htdocs/photo2/resources/views/layout.blade.php",
 		"/C/xampp/htdocs/photo2/app/Http/Controllers/SearchController.php",
 		"/C/xampp/htdocs/photo2/app/Http/Controllers/GalleryController.php",
@@ -700,22 +725,7 @@
 		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/GalleryComposer.php",
 		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PagesLinksCollection.php",
 		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/SidebarComposer.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PageTreeBuilder.php",
-		"/C/xampp/htdocs/photo2/resources/views/tag/show.blade.php",
-		"/C/xampp/htdocs/photo2/public/js/photo-lightbox.js",
-		"/C/xampp/htdocs/photo2/resources/lang/en/helper/gallery.php",
-		"/C/xampp/htdocs/photo2/resources/lang/pl/helper/gallery.php",
-		"/C/xampp/htdocs/photo2/public/photoswipe/photoswipe.js",
-		"/C/xampp/htdocs/photo2/resources/views/helper/gallery/categories.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/index.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/sidebar.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/gallery/show.blade.php",
-		"/C/xampp/htdocs/photo2/resources/lang/en/tags.php",
-		"/C/xampp/htdocs/photo2/resources/views/tag/index.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/gallery/tags.blade.php",
-		"/C/xampp/htdocs/photo2/resources/lang/pl/tags.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/gallery.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/tag/404.blade.php"
+		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PageTreeBuilder.php"
 	],
 	"find":
 	{
@@ -856,19 +866,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/chemistry-calculator/server.php",
+					"file": "/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/IndexController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 563,
+						"buffer_size": 287,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								563,
-								563
+								287,
+								287
 							]
 						],
 						"settings":
@@ -880,6 +890,34 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/chemistry-calculator/resources/views/layout.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								508,
+								508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

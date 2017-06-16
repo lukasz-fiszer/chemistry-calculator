@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "chemistry-calculator/domain": "dev-master",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },
@@ -43,6 +44,9 @@
             "php artisan optimize"
         ]
     },
+    "repositories": [
+        {"type": "vcs", "url": "C:\\xampp\\htdocs\\chemistry-calculator-domain"}
+    ],
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
