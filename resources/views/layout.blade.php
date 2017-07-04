@@ -31,6 +31,21 @@
 				menu.classList.toggle('is-active');
 			});
 		})();
+		(function() {
+			var scroll = function(){
+				return document.body.scrollHeight > document.body.clientHeight;
+			}
+			var checkScroll = function(){
+				if(scroll()){
+					document.body.style.height = 'auto';
+				}
+				else{
+					document.body.style.height = '100%';
+				}
+			};
+			window.addEventListener('resize', checkScroll, true);
+			checkScroll();
+		})();
 	</script>
 	@yield('footer_elements')
 @endsection

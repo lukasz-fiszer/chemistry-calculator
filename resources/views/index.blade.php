@@ -7,4 +7,5 @@
 @section('content')
 	@include('helper.frontpage-header')
 	@include('helper.chemical-form')
+	@include('helper.chemical-reaction')
 @endsection
