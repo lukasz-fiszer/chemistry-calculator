@@ -22,5 +22,15 @@
 
 	@include('layout.footer')
 
+	<script type="text/javascript">
+		(function() {
+			var burger = document.querySelector('.nav-toggle');
+			var menu = document.querySelector('.nav-menu');
+			burger.addEventListener('click', function() {
+				burger.classList.toggle('is-active');
+				menu.classList.toggle('is-active');
+			});
+		})();
+	</script>
 	@yield('footer_elements')
 @endsection

@@ -599,6 +599,7 @@
 	"file_history":
 	[
 		"/C/xampp/htdocs/chemistry-calculator/composer.json",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/sebastian/code-unit-reverse-lookup/composer.json",
 		"/C/xampp/htdocs/chemistry-calculator/.gitignore",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/index.blade.php",
@@ -724,8 +725,7 @@
 		"/C/xampp/htdocs/photo2/database/migrations/2014_10_12_000000_create_users_table.php",
 		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/GalleryComposer.php",
 		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PagesLinksCollection.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/SidebarComposer.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PageTreeBuilder.php"
+		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/SidebarComposer.php"
 	],
 	"find":
 	{
@@ -877,8 +877,8 @@
 						"selection":
 						[
 							[
-								287,
-								287
+								286,
+								286
 							]
 						],
 						"settings":
@@ -971,6 +971,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"composerjson",
+				"composer.json"
+			],
+			[
+				"cokmposerjson",
+				"vendor\\sebastian\\code-unit-reverse-lookup\\composer.json"
+			],
 			[
 				"searchabelscope",
 				"vendor\\laravel\\scout\\src\\SearchableScope.php"
@@ -1474,14 +1482,6 @@
 			[
 				"enhelpergaller",
 				"resources\\lang\\en\\helper\\gallery.php"
-			],
-			[
-				"icnlude",
-				"resources\\views\\helper\\gallery\\include_assets.blade.php"
-			],
-			[
-				"includeassets",
-				"resources\\views\\helper\\gallery\\include_assets.blade.php"
 			]
 		],
 		"width": 0.0
