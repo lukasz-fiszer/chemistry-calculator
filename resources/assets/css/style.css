@@ -1,0 +1,17 @@
+html, body{
+	height: 100%;
+}
+body{
+	display: flex;
+	flex-direction: column;
+}
+.body-content{
+	flex: 1;
+}
+.has-opacity-half{
+	opacity: 0.5;
+}
+.has-bottom-border{
+	//border-bottom: 3px solid rgba(0, 0, 0, 0.75);
+	border-bottom: 2px solid #dbdbdb;
+}

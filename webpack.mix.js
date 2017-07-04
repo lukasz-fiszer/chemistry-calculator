@@ -11,5 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.styles(['resources/assets/css/style.css'], 'public/css/style.css');
+mix.scripts(['resources/assets/js/layout/hamburger.js', 'resources/assets/js/layout/scroll.js'], 'public/js/layout.js')
+
+if(mix.inProduction()){
+	mix.version();
+}
