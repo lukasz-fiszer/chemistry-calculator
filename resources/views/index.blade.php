@@ -9,3 +9,8 @@
 	@include('helper.chemical-form')
 	@include('helper.chemical-reaction')
 @endsection
+
+@section('footer_elements')
+	@parent
+	<script type="text/javascript" src="{{ mix('/js/chemical-form.js') }}"></script>
+@endsection

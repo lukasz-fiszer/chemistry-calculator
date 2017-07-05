@@ -1,5 +1,6 @@
 {
   "/mix.js": "/mix.js",
   "/css/style.css": "/css/style.css",
-  "/js/layout.js": "/js/layout.js"
+  "/js/layout.js": "/js/layout.js",
+  "/js/chemical-form.js": "/js/chemical-form.js"
 }

@@ -12,7 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix.styles(['resources/assets/css/style.css'], 'public/css/style.css');
-mix.scripts(['resources/assets/js/layout/hamburger.js', 'resources/assets/js/layout/scroll.js'], 'public/js/layout.js')
+mix.scripts(['resources/assets/js/layout/hamburger.js', 'resources/assets/js/layout/scroll.js'], 'public/js/layout.js');
+mix.js('resources/assets/js/chemical-form.js', 'public/js');
 
 if(mix.inProduction()){
 	mix.version();
