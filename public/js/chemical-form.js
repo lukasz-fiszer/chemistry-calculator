@@ -1629,53 +1629,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			moles: '',
 			grams: ''
-			//isDanger: false
 		};
 	},
 
 	computed: {
-		/*moles(){
-  	return this.molesInput;
-  },
-  grams(){
-  	return this.gramsInput;
-  },*/
 		wrongInput: function wrongInput() {
 			return isNaN(this.moles) || isNaN(this.grams);
 		}
 	},
 	methods: {
 		updateMoles: function updateMoles(event) {
-			//let moles = Number(event.target.value);
 			var value = event.target.value;
 			this.moles = value;
 			if (value === '') {
-				/*this.moles = '';
-    this.grams = '';*/
 				this.clearInputs();
 				return;
 			}
 
 			var moles = Number(value);
-			/*if(isNaN(moles)){
-   	this.isDanger = true;
-   }
-   else{
-   	this.isDanger = false;
-   }*/
 			if (moles === 0) {
 				moles = value === '0' ? 0 : NaN;
 			}
-			//this.moles = moles;
 			this.grams = this.atomicMass * moles;
 		},
 		updateGrams: function updateGrams(event) {
-			//let grams = Number(event.target.value);
 			var value = event.target.value;
 			this.grams = value;
 			if (value === '') {
-				/*this.grams = '';
-    this.moles = '';*/
 				this.clearInputs();
 				return;
 			}
@@ -1684,7 +1664,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			if (grams === 0) {
 				grams = value === '0' ? 0 : NaN;
 			}
-			//this.grams = grams;
 			this.moles = grams / this.atomicMass;
 		},
 		clearInputs: function clearInputs() {
@@ -1999,7 +1978,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "column",
     class: {
-      'has-text-danger': _vm.coefficient <= 0, 'has-opacity-half': _vm.coefficient == 1
+      'has-text-danger': _vm.coefficient <= 0, 'has-opacity-half': _vm.coefficient == 1, 'has-text-info': _vm.coefficient > 1
     }
   }, [_c('b', [_vm._v(_vm._s(_vm.coefficient))])]), _vm._v(" "), _c('div', {
     staticClass: "column"
