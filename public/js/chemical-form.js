@@ -1989,7 +1989,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       'has-text-danger': _vm.coefficient <= 0, 'has-opacity-half': _vm.coefficient == 1, 'has-text-info': _vm.coefficient > 1
     }
   }, [_c('b', [_vm._v(_vm._s(_vm.coefficient))])]), _vm._v(" "), _c('div', {
-    staticClass: "column"
+    staticClass: "column",
+    domProps: {
+      "innerHTML": _vm._s(_vm.molecule)
+    }
   }, [_vm._v(_vm._s(_vm.molecule))]), _vm._v(" "), _c('div', {
     staticClass: "column"
   }, [_vm._v(_vm._s(_vm.atomicMass))]), _vm._v(" "), _c('div', {
@@ -2131,7 +2134,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         key: index,
         attrs: {
           "coefficient": molecule.coefficient,
-          "molecule": molecule.name,
+          "molecule": molecule.nameHtml,
           "atomic-mass": molecule.atomicMass,
           "has-bottom-border": index == side.length - 1 && sideNumber != _vm.sides.length - 1
         }

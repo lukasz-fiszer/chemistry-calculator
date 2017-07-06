@@ -8,7 +8,7 @@
 			<div class="column"><b>Grams</b></div>
 		</div>
 		<template v-for="(side, sideNumber) in sides">
-			<molecule-table-entry v-for="(molecule, index) in side" :key="index" :coefficient="molecule.coefficient" :molecule="molecule.name" :atomic-mass="molecule.atomicMass" :has-bottom-border="index == side.length-1 && sideNumber != sides.length-1"></molecule-table-entry>
+			<molecule-table-entry v-for="(molecule, index) in side" :key="index" :coefficient="molecule.coefficient" :molecule="molecule.nameHtml" :atomic-mass="molecule.atomicMass" :has-bottom-border="index == side.length-1 && sideNumber != sides.length-1"></molecule-table-entry>
 		</template>
 	</div>
 </template>

@@ -44,7 +44,7 @@
 
 <div class="chemform">
 	{{-- <molecule-table-entry :coefficient="10" molecule="name" :atomic-mass="24.4"></molecule-table-entry> --}}
-	<molecule-table :sides="[[{name: 'abcd', atomicMass: 10, coefficient: 1}], [{name: 'abcd', atomicMass: 10, coefficient: 1}]]"></molecule-table>
+	<molecule-table :sides="[[{nameHtml: 'H<sub>2</sub>O', atomicMass: 18, coefficient: 2}, {nameHtml: 'O2', atomicMass: 10, coefficient: 1}], [{nameHtml: 'abcd', atomicMass: 10, coefficient: 1}]]"></molecule-table>
 </div>
 
 {{-- @verbatim
