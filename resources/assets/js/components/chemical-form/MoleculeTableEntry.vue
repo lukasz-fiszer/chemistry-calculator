@@ -1,5 +1,5 @@
 <template>
-	<div class="columns has-text-centered">
+	<div class="columns has-text-centered" :class="{'has-bottom-border': hasBottomBorder}">
 		<div class="column" :class="{'has-text-danger': coefficient <= 0, 'has-opacity-half': coefficient == 1, 'has-text-info': coefficient > 1}"><b>{{ coefficient }}</b></div>
 		<div class="column">{{ molecule }}</div>
 		<div class="column">{{ atomicMass }}</div>
@@ -22,6 +22,10 @@
 			atomicMass: {
 				type: Number,
 				required: true
+			},
+			hasBottomBorder: {
+				type: Boolean,
+				default: false
 			}
 		},
 		data(){

@@ -744,6 +744,7 @@ module.exports = function bind(fn, thisArg) {
 __webpack_require__(27);
 
 Vue.component('molecule-table-entry', __webpack_require__(29));
+Vue.component('molecule-table', __webpack_require__(34));
 
 var chemicalForm = new Vue({
 	el: '.chemform',
@@ -1623,6 +1624,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		atomicMass: {
 			type: Number,
 			required: true
+		},
+		hasBottomBorder: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data: function data() {
@@ -1974,7 +1979,10 @@ module.exports = function normalizeComponent (
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "columns has-text-centered"
+    staticClass: "columns has-text-centered",
+    class: {
+      'has-bottom-border': _vm.hasBottomBorder
+    }
   }, [_c('div', {
     staticClass: "column",
     class: {
@@ -2038,6 +2046,120 @@ if (false) {
 
 module.exports = __webpack_require__(7);
 
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		sides: {
+			type: Array,
+			required: true,
+			validator: function validator(sides) {
+				return Array.isArray(sides) && sides.reduce(function (prev, curr) {
+					return prev && Array.isArray(curr);
+				}, true);
+			}
+		}
+	},
+	data: function data() {
+		return {};
+	}
+});
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(30)(
+  /* script */
+  __webpack_require__(33),
+  /* template */
+  __webpack_require__(35),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\xampp\\htdocs\\chemistry-calculator\\resources\\assets\\js\\components\\chemical-form\\MoleculeTable.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] MoleculeTable.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-436ee3a9", Component.options)
+  } else {
+    hotAPI.reload("data-v-436ee3a9", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._m(0), _vm._v(" "), _vm._l((_vm.sides), function(side, sideNumber) {
+    return _vm._l((side), function(molecule, index) {
+      return _c('molecule-table-entry', {
+        key: index,
+        attrs: {
+          "coefficient": molecule.coefficient,
+          "molecule": molecule.name,
+          "atomic-mass": molecule.atomicMass,
+          "has-bottom-border": index == side.length - 1 && sideNumber != _vm.sides.length - 1
+        }
+      })
+    })
+  })], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "columns has-text-centered has-bottom-border"
+  }, [_c('div', {
+    staticClass: "column"
+  }, [_c('b', [_vm._v("Coefficient")])]), _vm._v(" "), _c('div', {
+    staticClass: "column"
+  }, [_c('b', [_vm._v("Molecule")])]), _vm._v(" "), _c('div', {
+    staticClass: "column"
+  }, [_c('b', [_vm._v("Molar mass")])]), _vm._v(" "), _c('div', {
+    staticClass: "column"
+  }, [_c('b', [_vm._v("Moles")])]), _vm._v(" "), _c('div', {
+    staticClass: "column"
+  }, [_c('b', [_vm._v("Grams")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-436ee3a9", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
