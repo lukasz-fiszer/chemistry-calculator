@@ -4,7 +4,6 @@ Vue.component('molecule-table-entry', require('./components/chemical-form/Molecu
 
 const chemicalForm = new Vue({
 	el: '.chemform',
-	//components: ['molecule-entry'],
 	mounted(){
 		console.log('mounted');
 	}

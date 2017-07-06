@@ -747,7 +747,6 @@ Vue.component('molecule-table-entry', __webpack_require__(29));
 
 var chemicalForm = new Vue({
 	el: '.chemform',
-	//components: ['molecule-entry'],
 	mounted: function mounted() {
 		console.log('mounted');
 	}
@@ -1612,7 +1611,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	//props: ['coefficient', 'molecule', 'atomicMass'],
 	props: {
 		coefficient: {
 			type: Number,
@@ -1628,23 +1626,70 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		}
 	},
 	data: function data() {
-		/*return {
-  	coefficient: this.coefficient,
-  	molecule: this.molecule,
-  	atomicMass: this.atomicMass
-  };*/
 		return {
-			molesInput: '',
-			gramsInput: ''
+			moles: '',
+			grams: ''
+			//isDanger: false
 		};
 	},
 
 	computed: {
-		moles: function moles() {
-			return this.molesInput;
+		/*moles(){
+  	return this.molesInput;
+  },
+  grams(){
+  	return this.gramsInput;
+  },*/
+		wrongInput: function wrongInput() {
+			return isNaN(this.moles) || isNaN(this.grams);
+		}
+	},
+	methods: {
+		updateMoles: function updateMoles(event) {
+			//let moles = Number(event.target.value);
+			var value = event.target.value;
+			this.moles = value;
+			if (value === '') {
+				/*this.moles = '';
+    this.grams = '';*/
+				this.clearInputs();
+				return;
+			}
+
+			var moles = Number(value);
+			/*if(isNaN(moles)){
+   	this.isDanger = true;
+   }
+   else{
+   	this.isDanger = false;
+   }*/
+			if (moles === 0) {
+				moles = value === '0' ? 0 : NaN;
+			}
+			//this.moles = moles;
+			this.grams = this.atomicMass * moles;
 		},
-		grams: function grams() {
-			return this.gramsInput;
+		updateGrams: function updateGrams(event) {
+			//let grams = Number(event.target.value);
+			var value = event.target.value;
+			this.grams = value;
+			if (value === '') {
+				/*this.grams = '';
+    this.moles = '';*/
+				this.clearInputs();
+				return;
+			}
+
+			var grams = Number(value);
+			if (grams === 0) {
+				grams = value === '0' ? 0 : NaN;
+			}
+			//this.grams = grams;
+			this.moles = grams / this.atomicMass;
+		},
+		clearInputs: function clearInputs() {
+			this.moles = '';
+			this.grams = '';
 		}
 	}
 });
@@ -1956,59 +2001,47 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'has-text-danger': _vm.coefficient <= 0, 'has-opacity-half': _vm.coefficient == 1
     }
-  }, [_c('b', [_vm._v("0")])]), _vm._v(" "), _c('div', {
+  }, [_c('b', [_vm._v(_vm._s(_vm.coefficient))])]), _vm._v(" "), _c('div', {
     staticClass: "column"
-  }, [_vm._v("OAMn")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.molecule))]), _vm._v(" "), _c('div', {
     staticClass: "column"
-  }, [_vm._v("44")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.atomicMass))]), _vm._v(" "), _c('div', {
     staticClass: "column"
   }, [_c('p', {
     staticClass: "control"
   }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.moles),
-      expression: "moles"
-    }],
     staticClass: "input",
+    class: {
+      'is-danger': _vm.wrongInput
+    },
     attrs: {
       "type": "text",
       "name": "moles"
     },
     domProps: {
-      "value": (_vm.moles)
+      "value": _vm.moles
     },
     on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.moles = $event.target.value
-      }
+      "input": _vm.updateMoles
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "column"
   }, [_c('p', {
     staticClass: "control"
   }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.grams),
-      expression: "grams"
-    }],
     staticClass: "input",
+    class: {
+      'is-danger': _vm.wrongInput
+    },
     attrs: {
       "type": "text",
       "name": "grams"
     },
     domProps: {
-      "value": (_vm.grams)
+      "value": _vm.grams
     },
     on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.grams = $event.target.value
-      }
+      "input": _vm.updateGrams
     }
   })])])])
 },staticRenderFns: []}
