@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"gram",
+				"gramsInput"
+			],
+			[
+				"moles",
+				"molesInput"
+			],
+			[
+				"text",
+				"textInfo"
+			],
+			[
+				"has",
+				"has-text-info"
+			],
+			[
+				"lis",
+				"listenerTimeout"
+			],
+			[
 				"sea",
 				"searchQuery"
 			],
@@ -484,10 +504,6 @@
 				"background-image"
 			],
 			[
-				"text",
-				"text-align"
-			],
-			[
 				"padd",
 				"padding"
 			],
@@ -498,22 +514,6 @@
 			[
 				"box",
 				"box-sizing"
-			],
-			[
-				"re",
-				"req\trequire …"
-			],
-			[
-				"req",
-				"request"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"temp",
-				"templatePath"
 			]
 		]
 	},
@@ -532,7 +532,7 @@
 			"file": "/C/xampp/htdocs/chemistry-calculator/resources/views/layout.blade.php",
 			"settings":
 			{
-				"buffer_size": 606,
+				"buffer_size": 904,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -545,10 +545,46 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 47.0,
-		"last_filter": "",
+		"height": 272.0,
+		"last_filter": "syntax js",
 		"selected_items":
 		[
+			[
+				"syntax js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"set syntax blade",
+				"Set Syntax: Laravel Blade"
+			],
+			[
+				"vue",
+				"Set Syntax: Vue Component"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"package control",
+				"Package Control: List Packages"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"indent",
+				"Indentation: Convert to Tabs"
+			],
 			[
 				"markdown p",
 				"Markdown Preview: Preview in Browser"
@@ -574,7 +610,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 494.0
+		"width": 414.0
 	},
 	"console":
 	{
@@ -598,22 +634,43 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-reaction.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/chemical-form.js",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/MoleculeTableEntry.vue",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/MoleculeTable.vue",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/app.js",
+		"/C/xampp/htdocs/chemistry-calculator/package.json",
+		"/C/xampp/htdocs/chemistry-calculator/webpack.mix.js",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/start.js",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/index.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/bootstrap.js",
+		"/C/xampp/htdocs/chemistry-calculator/public/js/chemical-form.js",
+		"/C/xampp/htdocs/chemistry-calculator/.gitignore",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/frontpage-header.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/public/mix-manifest.json",
+		"/C/xampp/htdocs/chemistry-calculator/public/js/app.js",
+		"/C/xampp/htdocs/chemistry-calculator/public/css/app.css",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/layout/scroll.js",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/layout/hamburger.js",
+		"/C/xampp/htdocs/chemistry-calculator/public/css/style.css",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
+		"/C/xampp/htdocs/chemistry-calculator/.env",
+		"/C/xampp/htdocs/chemistry-calculator/config/app.php",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/psy/psysh/src/Psy/ConfigPaths.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/nav.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/base.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/tests/Unit/ExampleTest.php",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php",
+		"/C/xampp/htdocs/chemistry-calculator/phpunit.xml",
 		"/C/xampp/htdocs/chemistry-calculator/composer.json",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/sebastian/code-unit-reverse-lookup/composer.json",
-		"/C/xampp/htdocs/chemistry-calculator/.gitignore",
-		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/resources/views/index.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/footer.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/public/css/style.css",
-		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/nav.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/frontpage-header.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout/header.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/resources/views/base.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
 		"/C/xampp/htdocs/chemistry-calculator/server.php",
 		"/C/xampp/htdocs/photo2/.gitignore",
 		"/C/xampp/htdocs/chemistry-calculator/composer.lock",
-		"/C/xampp/htdocs/chemistry-calculator/.env",
 		"/C/xampp/htdocs/photo2/resources/views/layout.blade.php",
 		"/C/xampp/htdocs/photo2/app/Http/Controllers/SearchController.php",
 		"/C/xampp/htdocs/photo2/app/Http/Controllers/GalleryController.php",
@@ -704,28 +761,7 @@
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php",
 		"/C/xampp/htdocs/photo2/app/Exceptions/Handler.php",
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Support/Facades/URL.php",
-		"/C/xampp/htdocs/photo2/resources/views/helper/gallery/include_assets.blade.php",
-		"/C/xampp/htdocs/photo2/config/sluggable.php",
-		"/C/xampp/htdocs/photo2/resources/views/slider/edit.blade.php",
-		"/C/xampp/htdocs/photo2/resources/views/slider/slide_draggable.blade.php",
-		"/C/xampp/htdocs/photo2/public/js/jquery.sortable.js",
-		"/C/xampp/htdocs/photo2/resources/views/admin/index.blade.php",
-		"/C/xampp/htdocs/photo2/routes/breadcrumbs/admin.php",
-		"/C/xampp/htdocs/photo2/resources/views/admin/login.blade.php",
-		"/C/xampp/htdocs/photo2/database/migrations/2017_03_03_212815_create_slides_table.php",
-		"/C/xampp/htdocs/photo2/vendor/nesbot/carbon/src/Carbon/Carbon.php",
-		"/C/xampp/htdocs/photo2/app/Helper/CacheManager.php",
-		"/C/Users/Łukasz/Documents/frontend/drag and drop sortable/html5sortable/jquery.sortable.js",
-		"/C/Users/Łukasz/AppData/Roaming/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
-		"/C/Users/Łukasz/Documents/frontend/drag and drop sortable/html5sortable/README.md",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
-		"/C/xampp/htdocs/photo2/app/Http/Middleware/VerifyCsrfToken.php",
-		"/C/xampp/htdocs/photo2/app/Http/Kernel.php",
-		"/C/xampp/htdocs/photo2/app/Providers/RouteServiceProvider.php",
-		"/C/xampp/htdocs/photo2/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/GalleryComposer.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/PagesLinksCollection.php",
-		"/C/xampp/htdocs/photo2/app/Http/ViewComposers/Helper/SidebarComposer.php"
+		"/C/xampp/htdocs/photo2/resources/views/helper/gallery/include_assets.blade.php"
 	],
 	"find":
 	{
@@ -746,6 +782,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"name",
+			"[",
+			"coefficient",
+			"table",
+			"coefficient",
+			"Coefficient",
+			"coefficient",
+			"clearInputs",
+			"moles",
+			"$",
+			"chem",
+			"axios",
+			"h2",
 			"n searchable",
 			"searchable(",
 			"firemodele",
@@ -898,20 +947,21 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 606,
+						"buffer_size": 904,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								508,
-								508
+								649,
+								649
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax"
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -971,6 +1021,98 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"moltaentry",
+				"resources\\assets\\js\\components\\chemical-form\\MoleculeTableEntry.vue"
+			],
+			[
+				"moleculetablen",
+				"resources\\assets\\js\\components\\chemical-form\\MoleculeTableEntry.vue"
+			],
+			[
+				"appjs",
+				"resources\\assets\\js\\app.js"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"webpack",
+				"webpack.mix.js"
+			],
+			[
+				"startjs",
+				"resources\\assets\\js\\start.js"
+			],
+			[
+				"ublicchemjs",
+				"public\\js\\chemical-form.js"
+			],
+			[
+				"botstrapjs",
+				"resources\\assets\\js\\bootstrap.js"
+			],
+			[
+				"gitignore",
+				".gitignore"
+			],
+			[
+				"indexblade",
+				"resources\\views\\index.blade.php"
+			],
+			[
+				"packagejson",
+				"package.json"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"routweb",
+				"routes\\web.php"
+			],
+			[
+				"configapp",
+				"config\\app.php"
+			],
+			[
+				"confapp",
+				"vendor\\psy\\psysh\\src\\Psy\\ConfigPaths.php"
+			],
+			[
+				"routesweb",
+				"routes\\web.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"stylecss",
+				"public\\css\\style.css"
+			],
+			[
+				"chemform",
+				"resources\\views\\helper\\chemical-form.blade.php"
+			],
+			[
+				"helper/",
+				"resources\\views\\helper\\frontpage-header.blade.php"
+			],
+			[
+				"base",
+				"resources\\views\\base.blade.php"
+			],
+			[
+				"layout",
+				"resources\\views\\layout.blade.php"
+			],
+			[
+				"testingtestcase",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Testing\\TestCase.php"
+			],
 			[
 				"composerjson",
 				"composer.json"
@@ -1054,14 +1196,6 @@
 			[
 				"configscout",
 				"config\\scout.php"
-			],
-			[
-				"configapp",
-				"config\\app.php"
-			],
-			[
-				".env",
-				".env"
 			],
 			[
 				"composer",
@@ -1398,90 +1532,6 @@
 			[
 				"eloqmodel",
 				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
-			],
-			[
-				"migslides",
-				"database\\migrations\\2017_03_03_212815_create_slides_table.php"
-			],
-			[
-				"slidescontorller",
-				"app\\Http\\Controllers\\SlidesController.php"
-			],
-			[
-				"helper/slider",
-				"resources\\views\\helper\\slider.blade.php"
-			],
-			[
-				"slidercomposer",
-				"app\\Http\\ViewComposers\\Helper\\SliderComposer.php"
-			],
-			[
-				"routeg",
-				"app\\Helper\\RouteGenerator.php"
-			],
-			[
-				"modellate",
-				"app\\Helper\\ModelLatest\\ModelLatest.php"
-			],
-			[
-				"slider",
-				"app\\Http\\ViewComposers\\Helper\\SliderComposer.php"
-			],
-			[
-				"migrationsslide",
-				"database\\migrations\\2017_03_03_212815_create_slides_table.php"
-			],
-			[
-				"verifycsrfotken",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php"
-			],
-			[
-				"verifycsrf",
-				"app\\Http\\Middleware\\VerifyCsrfToken.php"
-			],
-			[
-				"tagscontorller",
-				"app\\Http\\Controllers\\TagsController.php"
-			],
-			[
-				"photocomposer",
-				"app\\Http\\ViewComposers\\Helper\\Gallery\\PhotosComposer.php"
-			],
-			[
-				"photoscomposer",
-				"app\\Http\\ViewComposers\\Helper\\Gallery\\PhotosComposer.php"
-			],
-			[
-				"galleryphotos",
-				"resources\\views\\helper\\gallery\\photos.blade.php"
-			],
-			[
-				"tagshow",
-				"resources\\views\\tag\\show.blade.php"
-			],
-			[
-				"stylecss",
-				"public\\css\\style-1.css"
-			],
-			[
-				"stylc",
-				"public\\css\\style-1.css"
-			],
-			[
-				"stylecs",
-				"public\\css\\style-1.css"
-			],
-			[
-				"photoscopmo",
-				"app\\Http\\ViewComposers\\Helper\\Gallery\\PhotosComposer.php"
-			],
-			[
-				"indexcontroller",
-				"app\\Http\\Controllers\\IndexController.php"
-			],
-			[
-				"enhelpergaller",
-				"resources\\lang\\en\\helper\\gallery.php"
 			]
 		],
 		"width": 0.0

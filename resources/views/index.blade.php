@@ -6,6 +6,10 @@
 
 @section('content')
 	@include('helper.frontpage-header')
+	<form action="entry">
+		<input type="text" name="query">
+		<input type="submit">
+	</form>
 	@include('helper.chemical-form')
 	@include('helper.chemical-reaction')
 @endsection
