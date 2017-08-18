@@ -12,4 +12,3 @@
 */
 
 Route::get('/', 'IndexController@index')->name('index');
-Route::get('/entry', 'IndexController@entry')->name('entry');
