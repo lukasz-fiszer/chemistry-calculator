@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use ChemCalc\Domain\Chemistry\EntryPoint;
+use App\Lib\ChemistryQuery;
 
 /**
  * Controller for chemistry query api calls
@@ -25,8 +25,8 @@ class ChemistryQueryController extends Controller
     	]);
 
     	$t1 = microtime(true);
-    	$entryPoint = new EntryPoint($input);
-    	$result = $entryPoint->proceed();
+    	$chemistryQuery = new ChemistryQuery($input);
+    	$result = $chemistryQuery->proceed();
     	$t2 = microtime(true);
     	$result->took = $t2 - $t1;
 
