@@ -14,7 +14,7 @@
 		let form = document.querySelector('.form1');
 		form.addEventListener('submit', function(e){
 			e.preventDefault();
-			axios.get('/api/chemistry-query/?query=' + form.querySelector('input').value).then(a => console.log(a), a => console.log(a));
+			axios.get('/api/chemistry-query', {params: {query: form.querySelector('input').value}}).then(a => console.log(a), a => console.log(a));
 			return false;
 		});
 	</script>
