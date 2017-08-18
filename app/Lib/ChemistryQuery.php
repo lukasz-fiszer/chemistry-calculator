@@ -4,6 +4,7 @@ namespace App\Lib;
 
 use ChemCalc\Domain\Chemistry\EntryPoint;
 use stdClass;
+use ChemCalc\Domain\Chemistry\Entity\Molecule;
 
 /**
  * Chemistry query that proceeds chemistry input queries and returns response objects for the queries
@@ -38,6 +39,33 @@ class ChemistryQuery
 		if($result->status == 'molecule'){
 			$response = $this->moleculeResponse($result);
 		}
+		else if($result->status == 'reaction_equation'){
+			$response = $this->reactionResponse($result);
+		}
+
+		return $response;
+	}
+
+	/**
+	 * Make reaction equation response
+	 * 
+	 * @param  stdClass $result query result object
+	 * @return stdClass         query response object
+	 */
+	protected function reactionResponse(stdClass $result){
+		$response = new stdClass();
+		$response = $this->copyValues($result, $response);
+
+		$response->sides = [];
+		$i = 0;
+		foreach($result->context->sides as $k => $side){
+			$response->sides[$k] = [];
+			foreach($side as $key => $moleculeObject){
+				$molecule = $this->serializeMolecule($moleculeObject);
+				$molecule->coefficient = $result->context->solved[$i++];
+				$response->sides[$k][] = $molecule;
+			}
+		}
 
 		return $response;
 	}
@@ -53,14 +81,24 @@ class ChemistryQuery
 		$response = $this->copyValues($result, $response);
 
 		$molecule = $result->context->molecule;
-		$response->molecule = (object) [
-			'formula' => $molecule->getFormula(),
-			'charge' => $molecule->getCharge(),
-			'atomicMass' => $molecule->getAtomicMass(),
-			'isReal' => $molecule->isReal(),
-		];
+		$response->molecule = $this->serializeMolecule($molecule);
 
 		return $response;
+	}
+
+	/**
+	 * Serialize molecule for response
+	 * 
+	 * @param  Molecule $molecule molecule object
+	 * @return stdClass           serialized molecule object
+	 */
+	protected function serializeMolecule(Molecule $molecule){
+		return (object) [
+			'formula' => $molecule->getFormula(),
+			'charge' => $molecule->getCharge(),
+			'atomicMass' => number_format($molecule->getAtomicMass(), 2, '.', ''),
+			'isReal' => $molecule->isReal(),
+		];
 	}
 
 	/**
