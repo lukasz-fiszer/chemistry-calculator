@@ -42,6 +42,12 @@ class ChemistryQuery
 		else if($result->status == 'reaction_equation'){
 			$response = $this->reactionResponse($result);
 		}
+		else if($result->status == 'error'){
+			$response = $this->errorResponse($result);
+		}
+		else{
+			$response = $this->copyValues($result, $response);
+		}
 
 		return $response;
 	}
@@ -87,6 +93,37 @@ class ChemistryQuery
 	}
 
 	/**
+	 * Make error response
+	 * 
+	 * @param  stdClass $result query result object
+	 * @return stdClass         query response object
+	 */
+	protected function errorResponse(stdClass $result){
+		$response = new stdClass();
+		$response = $this->copyValues($result, $response);
+
+		if($response->code == 100){
+			$response->message = 'Empty query input';
+		}
+		else if($response->code == 201){
+			$response->message = 'Unexpected character: \''.$result->context->character.'\' at position: '.$result->context->position;
+			$response->context = $this->serializeContext($result->context);
+		}
+		else if($response->code == 202){
+			$response->message = 'Unexpected token: \''.$result->context->token->value.'\' at position: '.$result->context->position;
+			$response->context = $this->serializeContext($result->context);
+			$response->context->token = $response->context->token->value;
+		}
+		else if($response->code == 204){
+			$response->message = 'Expected other token than: \''.$result->context->actualToken->value.'\' at position: '.$result->context->position;
+			$response->context = $this->serializeContext($result->context);
+			$response->context->actualToken = $response->context->actualToken->value;
+		}
+
+		return $response;
+	}
+
+	/**
 	 * Serialize molecule for response
 	 * 
 	 * @param  Molecule $molecule molecule object
@@ -99,6 +136,16 @@ class ChemistryQuery
 			'atomicMass' => number_format($molecule->getAtomicMass(), 2, '.', ''),
 			'isReal' => $molecule->isReal(),
 		];
+	}
+
+	/**
+	 * Serialize result context for response
+	 * 
+	 * @param  stdClass $context result context
+	 * @return stdClass          serialized response context object
+	 */
+	protected function serializeContext(stdClass $context){
+		return (object) array_diff_key((array) $context, ['line' => null, 'position' => null]);
 	}
 
 	/**
