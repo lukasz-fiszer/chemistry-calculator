@@ -43,54 +43,5 @@
 </section>
 
 <div class="chemform">
-	{{-- <molecule-table-entry :coefficient="10" molecule="name" :atomic-mass="24.4"></molecule-table-entry> --}}
 	<molecule-table :sides="[[{nameHtml: 'H<sub>2</sub>O', atomicMass: 18, coefficient: 2}, {nameHtml: 'O2', atomicMass: 10, coefficient: 1}], [{nameHtml: 'abcd', atomicMass: 10, coefficient: 1}]]"></molecule-table>
 </div>
-
-{{-- @verbatim
-<div class="a">
-	<input type="text" name="name1" v-model="newName" @keyUp="addNameKey"><button @click="addName">Add name</button>
-	<li v-for="name in names">{{ name }}</li>
-	<p class="has-text-centered" :class="{'has-text-info' : textInfo}" @mouseover="toggleColor" @mouseOut="toggleColor">paragraph here</p>
-	<c v-for="name in names"></c>
-</div>
-@endverbatim
-
-@verbatim
-<script type="text/javascript">
-	let start = function(){
-		Vue.component('c', {
-			template: '<div><li v-for="a in list">{{ a }}</li></div>',
-			data(){
-				return {
-					list: ['a', 'b']
-				};
-			}
-		});
-		let v = new Vue({
-			el: '.a',
-			data: {
-				names: [],
-				newName: '',
-				textInfo: false
-			},
-			methods: {
-				addName(){
-					this.names.push(this.newName);
-					this.newName = '';
-				},
-				addNameKey(event){
-					console.log(event);
-					if(event.keyCode != 13) return;
-					this.names.push(this.newName);
-					this.newName = '';
-				},
-				toggleColor(){
-					this.textInfo ^= 1;
-				}
-			}
-		});
-	}
-	setTimeout(start, 2000);
-</script>
-@endverbatim --}}

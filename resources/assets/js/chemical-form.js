@@ -3,10 +3,6 @@ require('./start');
 Vue.component('molecule-table-entry', require('./components/chemical-form/MoleculeTableEntry.vue'));
 Vue.component('molecule-table', require('./components/chemical-form/MoleculeTable.vue'));
 
-//function moleculeToHtml(molecule){
-//const moleculeToHtml = function (molecule){
-//moleculeToHtml = function (molecule){
-//window.moleculeToHtml = const function (molecule){
 window.moleculeToHtml = function (molecule){
 	return molecule.replace(/(\d+)/, '<sub>$1</sub>');
 }

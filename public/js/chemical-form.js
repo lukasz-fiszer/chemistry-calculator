@@ -803,10 +803,6 @@ __webpack_require__(29);
 Vue.component('molecule-table-entry', __webpack_require__(32));
 Vue.component('molecule-table', __webpack_require__(31));
 
-//function moleculeToHtml(molecule){
-//const moleculeToHtml = function (molecule){
-//moleculeToHtml = function (molecule){
-//window.moleculeToHtml = const function (molecule){
 window.moleculeToHtml = function (molecule) {
 	return molecule.replace(/(\d+)/, '<sub>$1</sub>');
 };
@@ -1722,7 +1718,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -1755,7 +1750,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return isNaN(this.moles) || isNaN(this.grams);
 		},
 		moleculeHtml: function moleculeHtml() {
-			// return this.$props.molecule.replace(/(\d+)/, '<sub>$1</sub>');
 			return moleculeToHtml(this.$props.molecule);
 		},
 		coefficientClass: function coefficientClass() {
@@ -2088,7 +2082,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "innerHTML": _vm._s(_vm.moleculeHtml)
     }
-  }, [_vm._v(_vm._s(_vm.moleculeHtml))]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('div', {
     staticClass: "column"
   }, [_vm._v(_vm._s(_vm.atomicMass))]), _vm._v(" "), _c('div', {
     staticClass: "column"
