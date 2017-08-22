@@ -6,7 +6,7 @@
 
 @section('content')
 	@include('helper.frontpage-header')
-	<form action="entry" class="form1">
+	{{-- <form action="entry" class="form1">
 		<input type="text" name="query">
 		<input type="submit">
 	</form>
@@ -17,9 +17,11 @@
 			axios.get('/api/chemistry-query', {params: {query: form.querySelector('input').value}}).then(a => console.log(a), a => console.log(a));
 			return false;
 		});
-	</script>
-	@include('helper.chemical-form')
-	@include('helper.chemical-reaction')
+	</script> --}}
+	<div class="chemical-form">
+		@include('helper.chemical-form')
+		@include('helper.chemical-reaction')
+	</div>
 @endsection
 
 @section('footer_elements')

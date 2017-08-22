@@ -1,7 +1,8 @@
 <template>
 	<div class="columns has-text-centered" :class="{'has-bottom-border': hasBottomBorder}">
-		<div class="column" :class="{'has-text-danger': coefficient <= 0, 'has-opacity-half': coefficient == 1, 'has-text-info': coefficient > 1}"><b>{{ coefficient }}</b></div>
-		<div class="column" v-html="molecule">{{ molecule }}</div>
+		<!-- <div class="column" :class="{'has-text-danger': coefficient <= 0, 'has-opacity-half': coefficient == 1, 'has-text-info': coefficient > 1}"><b>{{ coefficient }}</b></div> -->
+		<div class="column" :class="coefficientClass"><b>{{ coefficient }}</b></div>
+		<div class="column" v-html="moleculeHtml">{{ moleculeHtml }}</div>
 		<div class="column">{{ atomicMass }}</div>
 		<div class="column"><p class="control"><input type="text" name="moles" class="input" :class="{'is-danger': wrongInput}" :value="moles" @input="updateMoles"></p></div>
 		<div class="column"><p class="control"><input type="text" name="grams" class="input" :class="{'is-danger': wrongInput}" :value="grams" @input="updateGrams"></p></div>
@@ -29,7 +30,7 @@
 			}
 		},
 		data(){
-			return{
+			return {
 				moles: '',
 				grams: '',
 			};
@@ -37,6 +38,13 @@
 		computed: {
 			wrongInput(){
 				return isNaN(this.moles) || isNaN(this.grams);
+			},
+			moleculeHtml(){
+				// return this.$props.molecule.replace(/(\d+)/, '<sub>$1</sub>');
+				return moleculeToHtml(this.$props.molecule);
+			},
+			coefficientClass(){
+				return moleculeCoefficientHtmlClass(this.coefficient);
 			}
 		},
 		methods: {
