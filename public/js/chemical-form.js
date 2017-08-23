@@ -840,9 +840,7 @@ var chemicalFormApp = new Vue({
 				return this.sides;
 			}
 			if (this.molecule !== undefined) {
-				var molecule = this.molecule;
-				molecule.coefficient = 1;
-				return [[molecule]];
+				return [[this.molecule]];
 			}
 		}
 	},
@@ -1757,8 +1755,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
 		coefficient: {
-			type: Number,
-			required: true
+			type: Number
 		},
 		molecule: {
 			type: String,
@@ -1785,7 +1782,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return isNaN(this.moles) || isNaN(this.grams);
 		},
 		moleculeHtml: function moleculeHtml() {
-			return moleculeToHtml(this.$props.molecule);
+			return moleculeToHtml(this.molecule);
 		},
 		coefficientClass: function coefficientClass() {
 			return moleculeCoefficientHtmlClass(this.coefficient);

@@ -13,7 +13,6 @@
 		props: {
 			coefficient: {
 				type: Number,
-				required: true
 			},
 			molecule: {
 				type: String,
@@ -39,7 +38,7 @@
 				return isNaN(this.moles) || isNaN(this.grams);
 			},
 			moleculeHtml(){
-				return moleculeToHtml(this.$props.molecule);
+				return moleculeToHtml(this.molecule);
 			},
 			coefficientClass(){
 				return moleculeCoefficientHtmlClass(this.coefficient);
