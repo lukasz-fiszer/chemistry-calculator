@@ -802,6 +802,7 @@ __webpack_require__(29);
 
 Vue.component('molecule-table-entry', __webpack_require__(32));
 Vue.component('molecule-table', __webpack_require__(31));
+Vue.component('reaction-box', __webpack_require__(37));
 
 window.moleculeToHtml = function (molecule) {
 	return molecule.replace(/(\d+)/, '<sub>$1</sub>');
@@ -2193,6 +2194,124 @@ if (false) {
 
 module.exports = __webpack_require__(8);
 
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		sides: {
+			type: Array,
+			required: true,
+			validator: function validator(sides) {
+				return Array.isArray(sides) && sides.reduce(function (prev, curr) {
+					return prev && Array.isArray(curr);
+				}, true);
+			}
+		}
+	},
+	data: function data() {
+		return {};
+	},
+
+	methods: {
+		coefficientHtmlClass: function coefficientHtmlClass(coefficient) {
+			return moleculeCoefficientHtmlClass(coefficient);
+		}
+	}
+});
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(7)(
+  /* script */
+  __webpack_require__(36),
+  /* template */
+  __webpack_require__(38),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\xampp\\htdocs\\chemistry-calculator\\resources\\assets\\js\\components\\chemical-form\\ReactionBox.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ReactionBox.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-530226e3", Component.options)
+  } else {
+    hotAPI.reload("data-v-530226e3", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "box has-text-centered"
+  }, [_c('h2', [_vm._v("Balanced chemical equation:")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('h2', [_vm._l((_vm.sides[0]), function(molecule, number) {
+    return [_c('span', {
+      class: _vm.coefficientHtmlClass(molecule.coefficient)
+    }, [_c('b', [_vm._v(_vm._s(molecule.coefficient))])]), _vm._v(" " + _vm._s(molecule.formula) + " "), (number != _vm.sides[0].length - 1) ? [_vm._v("+")] : [_vm._v("=")]]
+  }), _vm._v(" "), _vm._l((_vm.sides[1]), function(molecule, number) {
+    return [_c('span', {
+      class: _vm.coefficientHtmlClass(molecule.coefficient)
+    }, [_c('b', [_vm._v(_vm._s(molecule.coefficient))])]), _vm._v(" " + _vm._s(molecule.formula) + " "), (number != _vm.sides[0].length - 1) ? [_vm._v("+")] : _vm._e()]
+  })], 2)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('h2', [_c('span', {
+    staticClass: "has-opacity-half"
+  }, [_vm._v("1")]), _vm._v(" KmNO"), _c('sub', [_vm._v("4")]), _vm._v(" + "), _c('span', {
+    staticClass: "has-text-info"
+  }, [_c('b', [_vm._v("15")])]), _vm._v(" A = "), _c('span', {
+    staticClass: "has-text-danger"
+  }, [_c('b', [_vm._v("-1")])]), _vm._v(" KmA + "), _c('span', {
+    staticClass: "has-text-danger"
+  }, [_c('b', [_vm._v("0")])]), _vm._v(" OAMn")])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-530226e3", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -12,4 +12,5 @@
 			</div>
 		</form>
 	</div>
+	<reaction-box :sides="[[{formula: 'H2O', coefficient: 1}], [{formula: 'H2', coefficient: 2}]]"></reaction-box>
 </section>
