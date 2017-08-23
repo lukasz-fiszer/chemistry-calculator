@@ -22,7 +22,7 @@ window.validateComponentSidesArray = function(sides){
 	}, true);
 }
 
-window.isEmpty = function(object){
+window.isEmptyObject = function(object){
 	return Object.keys(object).length <= 0;
 }
 
@@ -34,12 +34,20 @@ const chemicalFormApp = new Vue({
 	},
 	computed: {
 		type(){
-			if(isEmpty(this.response)){
+			if(isEmptyObject(this.response)){
 				return 'empty';
 			}
 			if(this.response.hasOwnProperty('type')){
 				return this.response.type;
 			}
+		},
+		isReactionType(){
+			//return this.type == 'reaction_equation';
+			console.log('check reaction type');
+			if(this.response.hasOwnProperty('type')){
+				return this.response.type == 'reaction_equation';
+			}
+			return false;
 		}
 	},
 	mounted(){
@@ -47,8 +55,18 @@ const chemicalFormApp = new Vue({
 	},
 	methods: {
 		onSubmit(){
+			//let self = this;
 			console.log(this.input);
-			axios.get('/api/chemistry-query', {params: {query: this.input}}).then(a => console.log(a), a => console.log(a));
+			// axios.get('/api/chemistry-query', {params: {query: this.input}}).then(a => console.log(a), a => console.log(a));
+			/*axios.get('/api/chemistry-query', {params: {query: this.input}})
+				.then(a => console.log(a))
+				.catch(a => console.log(a));*/
+			axios.get('/api/chemistry-query', {params: {query: this.input}})
+				.then((function(response){
+					this.response = response.data;
+					//self.response = response.data;
+				}).bind(this))
+				.catch(a => console.log(a));
 		}
 	}
 });
