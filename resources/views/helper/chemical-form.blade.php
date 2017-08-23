@@ -14,7 +14,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section class="section has-no-padding-top">
 	<div class="container">
 		<reaction-box v-if="isReactionType" :sides="sides"></reaction-box>
 		<molecule-box v-if="isMoleculeType" :molecule="molecule"></reaction-box>

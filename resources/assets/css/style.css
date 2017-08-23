@@ -15,3 +15,6 @@ body{
 	//border-bottom: 3px solid rgba(0, 0, 0, 0.75);
 	border-bottom: 2px solid #dbdbdb;
 }
+.has-no-padding-top{
+	padding-top: 0px;
+}
