@@ -815,12 +815,92 @@ window.moleculeCoefficientHtmlClass = function (coefficient) {
 	};
 };
 
+/*Vue.component('chemform', {
+	mounted(){
+		console.log('mounted chemform');
+	},
+	data(){
+		return {
+			input: 'name'
+		};
+	}
+});*/
+
+/*let chemform = Vue.component('chemform');
+new chemform().$mount('.chemform');*/
+
+var chemicalFormApp = new Vue({
+	el: '.chemical-form-app',
+	mounted: function mounted() {
+		console.log('mounted');
+	},
+
+	methods: {
+		alert: function (_alert) {
+			function alert() {
+				return _alert.apply(this, arguments);
+			}
+
+			alert.toString = function () {
+				return _alert.toString();
+			};
+
+			return alert;
+		}(function () {
+			alert('a2');
+		})
+	}
+});
+
 var chemicalForm = new Vue({
 	el: '.chemical-form',
 	mounted: function mounted() {
-		console.log('mounted');
+		console.log('chemform mounted');
+	},
+
+	/*data(){
+ 	return {
+ 		input: ''
+ 	};
+ },*/
+	data: {
+		input: ''
+	},
+	methods: {
+		alert: function (_alert2) {
+			function alert() {
+				return _alert2.apply(this, arguments);
+			}
+
+			alert.toString = function () {
+				return _alert2.toString();
+			};
+
+			return alert;
+		}(function () {
+			alert('a');
+		}),
+		onSubmit: function onSubmit() {
+			// alert(input);
+			alert(this.input);
+		}
 	}
 });
+
+/*const chemicalFormApp = new Vue({
+	el: '.chemical-form-app',
+	mounted(){
+		console.log('mounted');
+	},
+	methods: {
+		alert(){
+			alert('a2');
+		}
+	}
+});*/
+
+// chemicalForm.alert();
+// chemicalFormApp.alert();
 
 /***/ }),
 /* 9 */

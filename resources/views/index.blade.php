@@ -18,9 +18,9 @@
 			return false;
 		});
 	</script> --}}
-	<div class="chemical-form">
+	<div class="chemical-form-app">
 		@include('helper.chemical-form')
-		@include('helper.chemical-reaction')
+		{{-- @include('helper.chemical-reaction') --}}
 	</div>
 @endsection
 
