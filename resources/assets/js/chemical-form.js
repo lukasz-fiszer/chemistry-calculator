@@ -31,6 +31,17 @@ const chemicalFormApp = new Vue({
 		},
 		molecule(){
 			return this.response.molecule;
+		},
+		hasMoleculeTable(){
+			return this.isMoleculeType || this.isReactionType;
+		},
+		moleculeTableSides(){
+			if(this.sides !== undefined){
+				return this.sides;
+			}
+			if(this.molecule !== undefined){
+				return [[this.molecule]];
+			}
 		}
 	},
 	methods: {
