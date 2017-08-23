@@ -816,6 +816,12 @@ window.moleculeCoefficientHtmlClass = function (coefficient) {
 	};
 };
 
+window.validateComponentSidesArray = function (sides) {
+	return Array.isArray(sides) && sides.reduce(function (prev, curr) {
+		return prev && Array.isArray(curr);
+	}, true);
+};
+
 var chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
@@ -2216,10 +2222,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -2227,9 +2229,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			type: Array,
 			required: true,
 			validator: function validator(sides) {
-				return Array.isArray(sides) && sides.reduce(function (prev, curr) {
-					return prev && Array.isArray(curr);
-				}, true);
+				return validateComponentSidesArray(sides);
 			}
 		}
 	},
@@ -2240,6 +2240,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		coefficientHtmlClass: function coefficientHtmlClass(coefficient) {
 			return moleculeCoefficientHtmlClass(coefficient);
+		},
+		moleculeHtml: function moleculeHtml(molecule) {
+			return moleculeToHtml(molecule);
 		}
 	}
 });
@@ -2285,26 +2288,24 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "box has-text-centered"
-  }, [_c('h2', [_vm._v("Balanced chemical equation:")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('h2', [_vm._l((_vm.sides[0]), function(molecule, number) {
+  }, [_c('h2', [_vm._v("Balanced chemical equation:")]), _vm._v(" "), _c('h2', [_vm._l((_vm.sides[0]), function(molecule, number) {
     return [_c('span', {
       class: _vm.coefficientHtmlClass(molecule.coefficient)
-    }, [_c('b', [_vm._v(_vm._s(molecule.coefficient))])]), _vm._v(" " + _vm._s(molecule.formula) + " "), (number != _vm.sides[0].length - 1) ? [_vm._v("+")] : [_vm._v("=")]]
-  }), _vm._v(" "), _vm._l((_vm.sides[1]), function(molecule, number) {
+    }, [_c('b', [_vm._v(_vm._s(molecule.coefficient))])]), _vm._v(" "), _c('span', {
+      domProps: {
+        "innerHTML": _vm._s(_vm.moleculeHtml(molecule.formula))
+      }
+    }), _vm._v(" "), (number != _vm.sides[0].length - 1) ? [_vm._v("+")] : _vm._e()]
+  }), _vm._v("\n\t\t=\n\t\t"), _vm._l((_vm.sides[1]), function(molecule, number) {
     return [_c('span', {
       class: _vm.coefficientHtmlClass(molecule.coefficient)
-    }, [_c('b', [_vm._v(_vm._s(molecule.coefficient))])]), _vm._v(" " + _vm._s(molecule.formula) + " "), (number != _vm.sides[0].length - 1) ? [_vm._v("+")] : _vm._e()]
+    }, [_c('b', [_vm._v(_vm._s(molecule.coefficient))])]), _vm._v(" "), _c('span', {
+      domProps: {
+        "innerHTML": _vm._s(_vm.moleculeHtml(molecule.formula))
+      }
+    }), _vm._v(" "), (number != _vm.sides[1].length - 1) ? [_vm._v("+")] : _vm._e()]
   })], 2)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('h2', [_c('span', {
-    staticClass: "has-opacity-half"
-  }, [_vm._v("1")]), _vm._v(" KmNO"), _c('sub', [_vm._v("4")]), _vm._v(" + "), _c('span', {
-    staticClass: "has-text-info"
-  }, [_c('b', [_vm._v("15")])]), _vm._v(" A = "), _c('span', {
-    staticClass: "has-text-danger"
-  }, [_c('b', [_vm._v("-1")])]), _vm._v(" KmA + "), _c('span', {
-    staticClass: "has-text-danger"
-  }, [_c('b', [_vm._v("0")])]), _vm._v(" OAMn")])
-}]}
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
