@@ -833,21 +833,19 @@ var chemicalFormApp = new Vue({
 		response: {}
 	},
 	computed: {
-		type: function type() {
+		status: function status() {
 			if (isEmptyObject(this.response)) {
 				return 'empty';
 			}
-			if (this.response.hasOwnProperty('type')) {
-				return this.response.type;
+			if (this.response.hasOwnProperty('status')) {
+				return this.response.status;
 			}
 		},
 		isReactionType: function isReactionType() {
-			//return this.type == 'reaction_equation';
-			console.log('check reaction type');
-			if (this.response.hasOwnProperty('type')) {
-				return this.response.type == 'reaction_equation';
-			}
-			return false;
+			return this.status == 'reaction_equation';
+		},
+		sides: function sides() {
+			return this.response.sides;
 		}
 	},
 	mounted: function mounted() {
@@ -856,15 +854,9 @@ var chemicalFormApp = new Vue({
 
 	methods: {
 		onSubmit: function onSubmit() {
-			//let self = this;
 			console.log(this.input);
-			// axios.get('/api/chemistry-query', {params: {query: this.input}}).then(a => console.log(a), a => console.log(a));
-			/*axios.get('/api/chemistry-query', {params: {query: this.input}})
-   	.then(a => console.log(a))
-   	.catch(a => console.log(a));*/
 			axios.get('/api/chemistry-query', { params: { query: this.input } }).then(function (response) {
 				this.response = response.data;
-				//self.response = response.data;
 			}.bind(this)).catch(function (a) {
 				return console.log(a);
 			});

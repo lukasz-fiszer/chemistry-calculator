@@ -16,6 +16,6 @@
 
 <section class="section">
 	<div class="container">
-		<reaction-box v-if="isReactionType"></reaction-box>
+		<reaction-box v-if="isReactionType" :sides="sides"></reaction-box>
 	</div>
 </section>
