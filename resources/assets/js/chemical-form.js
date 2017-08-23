@@ -3,6 +3,7 @@ require('./start');
 Vue.component('molecule-table-entry', require('./components/chemical-form/MoleculeTableEntry.vue'));
 Vue.component('molecule-table', require('./components/chemical-form/MoleculeTable.vue'));
 Vue.component('reaction-box', require('./components/chemical-form/ReactionBox.vue'));
+Vue.component('molecule-box', require('./components/chemical-form/MoleculeBox.vue'));
 
 const chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
@@ -22,16 +23,18 @@ const chemicalFormApp = new Vue({
 		isReactionType(){
 			return this.status == 'reaction_equation';
 		},
+		isMoleculeType(){
+			return this.status == 'molecule';
+		},
 		sides(){
 			return this.response.sides;
+		},
+		molecule(){
+			return this.response.molecule;
 		}
-	},
-	mounted(){
-		console.log('mounted');
 	},
 	methods: {
 		onSubmit(){
-			console.log(this.input);
 			axios.get('/api/chemistry-query', {params: {query: this.input}})
 				.then((function(response){
 					this.response = response.data;

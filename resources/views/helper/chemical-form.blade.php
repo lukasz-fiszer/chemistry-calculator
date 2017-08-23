@@ -17,5 +17,6 @@
 <section class="section">
 	<div class="container">
 		<reaction-box v-if="isReactionType" :sides="sides"></reaction-box>
+		<molecule-box v-if="isMoleculeType" :molecule="molecule"></reaction-box>
 	</div>
 </section>

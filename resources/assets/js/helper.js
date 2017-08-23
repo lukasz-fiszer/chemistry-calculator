@@ -1,5 +1,5 @@
 window.moleculeToHtml = function(molecule){
-	return molecule.replace(/(\d+)/, '<sub>$1</sub>');
+	return molecule.replace(/(\d+)/g, '<sub>$1</sub>');
 }
 
 window.moleculeCoefficientHtmlClass = function(coefficient){
