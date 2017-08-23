@@ -20,7 +20,7 @@
 				required: true
 			},
 			atomicMass: {
-				type: Number,
+				type: [Number, String],
 				required: true
 			},
 			hasBottomBorder: {

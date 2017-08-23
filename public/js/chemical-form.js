@@ -840,7 +840,9 @@ var chemicalFormApp = new Vue({
 				return this.sides;
 			}
 			if (this.molecule !== undefined) {
-				return [[this.molecule]];
+				var molecule = this.molecule;
+				molecule.coefficient = 1;
+				return [[molecule]];
 			}
 		}
 	},
@@ -1730,9 +1732,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}
 		}
 	},
-	mounted: function mounted() {
-		alert('table mounted');
-	},
 	data: function data() {
 		return {};
 	}
@@ -1766,7 +1765,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			required: true
 		},
 		atomicMass: {
-			type: Number,
+			type: [Number, String],
 			required: true
 		},
 		hasBottomBorder: {

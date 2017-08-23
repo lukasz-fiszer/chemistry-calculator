@@ -40,7 +40,9 @@ const chemicalFormApp = new Vue({
 				return this.sides;
 			}
 			if(this.molecule !== undefined){
-				return [[this.molecule]];
+				let molecule = this.molecule;
+				molecule.coefficient = 1;
+				return [[molecule]];
 			}
 		}
 	},

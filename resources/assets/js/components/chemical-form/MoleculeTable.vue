@@ -26,9 +26,6 @@
 				}
 			}
 		},
-		mounted(){
-			alert('table mounted');
-		},
 		data(){
 			return {};
 		}

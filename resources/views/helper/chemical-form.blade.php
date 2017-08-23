@@ -18,8 +18,6 @@
 	<div class="container">
 		<reaction-box v-if="isReactionType" :sides="sides"></reaction-box>
 		<molecule-box v-if="isMoleculeType" :molecule="molecule"></molecule-box>
-		<molecule-table v-if="isReactionType || isMoleculeType" :sides="moleculeTableSides"></molecule-table>
-		{{-- <molecule-table v-if="hasMoleculeTable">a</molecule-table> --}}
-		{{-- <molecule-table :sides="sides"></molecule-table> --}}
+		<molecule-table v-if="hasMoleculeTable" :sides="moleculeTableSides"></molecule-table>
 	</div>
 </section>
