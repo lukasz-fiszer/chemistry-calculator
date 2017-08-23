@@ -18,3 +18,8 @@ body{
 .has-no-padding-top{
 	padding-top: 0px;
 }
+.control.is-loading-input:after{
+	height: 1.5em;
+	width: 1.5em;
+	z-index: 100;
+}

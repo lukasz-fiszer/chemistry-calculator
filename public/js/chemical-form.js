@@ -809,8 +809,13 @@ var chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
 		input: '',
+		loading: false,
 		response: {}
 	},
+	mounted: function mounted() {
+		document.querySelector('input[name="chemical-input"]').focus();
+	},
+
 	computed: {
 		status: function status() {
 			if (isEmptyObject(this.response)) {
@@ -846,11 +851,15 @@ var chemicalFormApp = new Vue({
 	},
 	methods: {
 		onSubmit: function onSubmit() {
+			this.response = {};
+			this.loading = true;
 			axios.get('/api/chemistry-query', { params: { query: this.input } }).then(function (response) {
 				this.response = response.data;
 			}.bind(this)).catch(function (a) {
 				return console.log(a);
-			});
+			}).then(function () {
+				this.loading = false;
+			}.bind(this));
 		}
 	}
 });
