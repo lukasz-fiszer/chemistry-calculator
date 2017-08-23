@@ -804,28 +804,6 @@ Vue.component('molecule-table-entry', __webpack_require__(32));
 Vue.component('molecule-table', __webpack_require__(31));
 Vue.component('reaction-box', __webpack_require__(37));
 
-window.moleculeToHtml = function (molecule) {
-	return molecule.replace(/(\d+)/, '<sub>$1</sub>');
-};
-
-window.moleculeCoefficientHtmlClass = function (coefficient) {
-	return {
-		'has-text-danger': coefficient <= 0,
-		'has-opacity-half': coefficient == 1,
-		'has-text-info': coefficient > 1
-	};
-};
-
-window.validateComponentSidesArray = function (sides) {
-	return Array.isArray(sides) && sides.reduce(function (prev, curr) {
-		return prev && Array.isArray(curr);
-	}, true);
-};
-
-window.isEmptyObject = function (object) {
-	return Object.keys(object).length <= 0;
-};
-
 var chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
@@ -1838,6 +1816,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(39);
 window.axios = __webpack_require__(9);
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -2334,6 +2313,32 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-530226e3", module.exports)
   }
 }
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+window.moleculeToHtml = function (molecule) {
+	return molecule.replace(/(\d+)/, '<sub>$1</sub>');
+};
+
+window.moleculeCoefficientHtmlClass = function (coefficient) {
+	return {
+		'has-text-danger': coefficient <= 0,
+		'has-opacity-half': coefficient == 1,
+		'has-text-info': coefficient > 1
+	};
+};
+
+window.validateComponentSidesArray = function (sides) {
+	return Array.isArray(sides) && sides.reduce(function (prev, curr) {
+		return prev && Array.isArray(curr);
+	}, true);
+};
+
+window.isEmptyObject = function (object) {
+	return Object.keys(object).length <= 0;
+};
 
 /***/ })
 /******/ ]);
