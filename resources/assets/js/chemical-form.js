@@ -22,10 +22,25 @@ window.validateComponentSidesArray = function(sides){
 	}, true);
 }
 
+window.isEmpty = function(object){
+	return Object.keys(object).length <= 0;
+}
+
 const chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
-		input: ''
+		input: '',
+		response: {}
+	},
+	computed: {
+		type(){
+			if(isEmpty(this.response)){
+				return 'empty';
+			}
+			if(this.response.hasOwnProperty('type')){
+				return this.response.type;
+			}
+		}
 	},
 	mounted(){
 		console.log('mounted');

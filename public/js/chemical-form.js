@@ -822,10 +822,25 @@ window.validateComponentSidesArray = function (sides) {
 	}, true);
 };
 
+window.isEmpty = function (object) {
+	return Object.keys(object).length <= 0;
+};
+
 var chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
-		input: ''
+		input: '',
+		response: {}
+	},
+	computed: {
+		type: function type() {
+			if (isEmpty(this.response)) {
+				return 'empty';
+			}
+			if (this.response.hasOwnProperty('type')) {
+				return this.response.type;
+			}
+		}
 	},
 	mounted: function mounted() {
 		console.log('mounted');

@@ -13,3 +13,9 @@
 		</form>
 	</div>
 </section>
+
+<section class="section">
+	<div class="container">
+		<reaction-box v-if="type == 'reaction_equation'"></reaction-box>
+	</div>
+</section>
