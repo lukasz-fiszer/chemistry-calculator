@@ -10,6 +10,7 @@ const chemicalFormApp = new Vue({
 	data: {
 		input: '',
 		loading: false,
+		submittedInput: '',
 		response: {}
 	},
 	mounted(){
@@ -50,6 +51,10 @@ const chemicalFormApp = new Vue({
 	},
 	methods: {
 		onSubmit(){
+			if(this.submittedInput === this.input){
+				return;
+			}
+			this.submittedInput = this.input;
 			this.response = {};
 			this.loading = true;
 			axios.get('/api/chemistry-query', {params: {query: this.input}})
