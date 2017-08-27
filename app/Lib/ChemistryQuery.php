@@ -115,9 +115,16 @@ class ChemistryQuery
 			$response->context->token = $response->context->token->value;
 		}
 		else if($response->code == 204){
-			$response->message = 'Expected other token than: \''.$result->context->actualToken->value.'\' at position: '.$result->context->position;
+			$response->message = 'Expected other token than: \''.($result->context->actualToken->value ?? 'null').'\' at position: '.$result->context->position;
 			$response->context = $this->serializeContext($result->context);
-			$response->context->actualToken = $response->context->actualToken->value;
+			$response->context->actualToken = $response->context->actualToken->value ?? null;
+		}
+		else if($response->code >= 350 && $response->code < 400){
+			$response->message = $result->message;
+			$response->context = $result->context;
+		}
+		else{
+			$response->message = 'Error message';
 		}
 
 		return $response;
