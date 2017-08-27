@@ -11,7 +11,8 @@ const chemicalFormApp = new Vue({
 		input: '',
 		loading: false,
 		submittedInput: '',
-		response: {}
+		response: {},
+		error: false
 	},
 	mounted(){
 		document.querySelector('input[name="chemical-input"]').focus();
@@ -59,9 +60,29 @@ const chemicalFormApp = new Vue({
 			this.loading = true;
 			axios.get('/api/chemistry-query', {params: {query: this.input}})
 				.then((function(response){
+					this.error = false;
 					this.response = response.data;
+					// this.error = false;
 				}).bind(this))
-				.catch(a => console.log(a))
+				// .catch((function(response){
+				.catch((function(error){
+					// this.error = true;
+					if(error.response && error.response.status == 422){
+						// this.response = response.data;
+						// this.response = error.response;
+						this.response = error.response.data;
+					}
+					else{
+						this.response = {};
+					}
+					this.error = true;
+					/*if(error.response.status){
+						alert(error.response.status);
+					}*/
+					// alert(response);
+					/*this.response = response.data;
+					this.error = true;*/
+				}).bind(this))
 				.then((function(){
 					this.loading = false;
 				}).bind(this));

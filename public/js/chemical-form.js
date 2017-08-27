@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 35);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 
 /*global toString:true*/
 
@@ -374,6 +374,63 @@ module.exports = {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  scopeId,
+  cssModules
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  // inject cssModules
+  if (cssModules) {
+    var computed = Object.create(options.computed || null)
+    Object.keys(cssModules).forEach(function (key) {
+      var module = cssModules[key]
+      computed[key] = function () { return module }
+    })
+    options.computed = computed
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -397,10 +454,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   }
   return adapter;
 }
@@ -471,10 +528,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -485,7 +542,7 @@ var settle = __webpack_require__(16);
 var buildURL = __webpack_require__(19);
 var parseHeaders = __webpack_require__(25);
 var isURLSameOrigin = __webpack_require__(23);
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(18);
 
 module.exports = function xhrAdapter(config) {
@@ -658,7 +715,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -684,7 +741,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -696,7 +753,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -720,7 +777,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -738,72 +795,15 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  scopeId,
-  cssModules
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  // inject cssModules
-  if (cssModules) {
-    var computed = Object.create(options.computed || null)
-    Object.keys(cssModules).forEach(function (key) {
-      var module = cssModules[key]
-      computed[key] = function () { return module }
-    })
-    options.computed = computed
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(29);
+__webpack_require__(32);
 
-Vue.component('molecule-table-entry', __webpack_require__(32));
-Vue.component('molecule-table', __webpack_require__(31));
+Vue.component('molecule-table-entry', __webpack_require__(36));
+Vue.component('molecule-table', __webpack_require__(35));
 Vue.component('reaction-box', __webpack_require__(37));
-Vue.component('molecule-box', __webpack_require__(41));
+Vue.component('molecule-box', __webpack_require__(34));
 
 var chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
@@ -811,7 +811,8 @@ var chemicalFormApp = new Vue({
 		input: '',
 		loading: false,
 		submittedInput: '',
-		response: {}
+		response: {},
+		error: false
 	},
 	mounted: function mounted() {
 		document.querySelector('input[name="chemical-input"]').focus();
@@ -859,10 +860,28 @@ var chemicalFormApp = new Vue({
 			this.response = {};
 			this.loading = true;
 			axios.get('/api/chemistry-query', { params: { query: this.input } }).then(function (response) {
+				this.error = false;
 				this.response = response.data;
-			}.bind(this)).catch(function (a) {
-				return console.log(a);
-			}).then(function () {
+				// this.error = false;
+			}.bind(this))
+			// .catch((function(response){
+			.catch(function (error) {
+				// this.error = true;
+				if (error.response && error.response.status == 422) {
+					// this.response = response.data;
+					// this.response = error.response;
+					this.response = error.response.data;
+				} else {
+					this.response = {};
+				}
+				this.error = true;
+				/*if(error.response.status){
+    	alert(error.response.status);
+    }*/
+				// alert(response);
+				/*this.response = response.data;
+    this.error = true;*/
+			}.bind(this)).then(function () {
 				this.loading = false;
 			}.bind(this));
 		}
@@ -883,9 +902,9 @@ module.exports = __webpack_require__(10);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(12);
-var defaults = __webpack_require__(1);
+var defaults = __webpack_require__(2);
 
 /**
  * Create an instance of Axios
@@ -918,9 +937,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(3);
+axios.Cancel = __webpack_require__(4);
 axios.CancelToken = __webpack_require__(11);
-axios.isCancel = __webpack_require__(4);
+axios.isCancel = __webpack_require__(5);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -941,7 +960,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(3);
+var Cancel = __webpack_require__(4);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1005,7 +1024,7 @@ module.exports = CancelToken;
 "use strict";
 
 
-var defaults = __webpack_require__(1);
+var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(13);
 var dispatchRequest = __webpack_require__(14);
@@ -1158,8 +1177,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(17);
-var isCancel = __webpack_require__(4);
-var defaults = __webpack_require__(1);
+var isCancel = __webpack_require__(5);
+var defaults = __webpack_require__(2);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1268,7 +1287,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1723,6 +1742,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		molecule: {
+			type: Object,
+			required: true
+		}
+	},
+	data: function data() {
+		return {};
+	},
+
+	methods: {
+		moleculeHtml: function moleculeHtml(molecule) {
+			return moleculeToHtml(molecule);
+		}
+	}
+});
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1750,7 +1801,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1839,10 +1890,82 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		sides: {
+			type: Array,
+			required: true,
+			validator: function validator(sides) {
+				return validateComponentSidesArray(sides);
+			}
+		}
+	},
+	data: function data() {
+		return {};
+	},
+
+	methods: {
+		coefficientHtmlClass: function coefficientHtmlClass(coefficient) {
+			return moleculeCoefficientHtmlClass(coefficient);
+		},
+		moleculeHtml: function moleculeHtml(molecule) {
+			return moleculeToHtml(molecule);
+		}
+	}
+});
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+window.moleculeToHtml = function (molecule) {
+	return molecule.replace(/(\d+)/g, '<sub>$1</sub>');
+};
+
+window.moleculeCoefficientHtmlClass = function (coefficient) {
+	return {
+		'has-text-danger': coefficient <= 0,
+		'has-opacity-half': coefficient == 1,
+		'has-text-info': coefficient > 1
+	};
+};
+
+window.validateComponentSidesArray = function (sides) {
+	return Array.isArray(sides) && sides.reduce(function (prev, curr) {
+		return prev && Array.isArray(curr);
+	}, true);
+};
+
+window.isEmptyObject = function (object) {
+	return Object.keys(object).length <= 0;
+};
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(39);
+__webpack_require__(31);
 window.axios = __webpack_require__(9);
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -1854,7 +1977,7 @@ if (token) {
 }
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -2044,14 +2167,48 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(7)(
+var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(27),
   /* template */
-  __webpack_require__(34),
+  __webpack_require__(39),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\xampp\\htdocs\\chemistry-calculator\\resources\\assets\\js\\components\\chemical-form\\MoleculeBox.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] MoleculeBox.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-401dd834", Component.options)
+  } else {
+    hotAPI.reload("data-v-401dd834", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(28),
+  /* template */
+  __webpack_require__(40),
   /* scopeId */
   null,
   /* cssModules */
@@ -2078,14 +2235,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(7)(
+var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(29),
   /* template */
-  __webpack_require__(33),
+  __webpack_require__(38),
   /* scopeId */
   null,
   /* cssModules */
@@ -2112,7 +2269,41 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(30),
+  /* template */
+  __webpack_require__(41),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\xampp\\htdocs\\chemistry-calculator\\resources\\assets\\js\\components\\chemical-form\\ReactionBox.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ReactionBox.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-530226e3", Component.options)
+  } else {
+    hotAPI.reload("data-v-530226e3", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2180,7 +2371,28 @@ if (false) {
 }
 
 /***/ }),
-/* 34 */
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "box has-text-centered"
+  }, [_c('h2', [_vm._v("Molecule:")]), _vm._v(" "), _c('h2', [_c('span', {
+    domProps: {
+      "innerHTML": _vm._s(_vm.moleculeHtml(_vm.molecule.formula))
+    }
+  })])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-401dd834", module.exports)
+  }
+}
+
+/***/ }),
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2221,94 +2433,7 @@ if (false) {
 }
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(8);
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: {
-		sides: {
-			type: Array,
-			required: true,
-			validator: function validator(sides) {
-				return validateComponentSidesArray(sides);
-			}
-		}
-	},
-	data: function data() {
-		return {};
-	},
-
-	methods: {
-		coefficientHtmlClass: function coefficientHtmlClass(coefficient) {
-			return moleculeCoefficientHtmlClass(coefficient);
-		},
-		moleculeHtml: function moleculeHtml(molecule) {
-			return moleculeToHtml(molecule);
-		}
-	}
-});
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(7)(
-  /* script */
-  __webpack_require__(36),
-  /* template */
-  __webpack_require__(38),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\xampp\\htdocs\\chemistry-calculator\\resources\\assets\\js\\components\\chemical-form\\ReactionBox.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] ReactionBox.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-530226e3", Component.options)
-  } else {
-    hotAPI.reload("data-v-530226e3", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2341,117 +2466,11 @@ if (false) {
 }
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-window.moleculeToHtml = function (molecule) {
-	return molecule.replace(/(\d+)/g, '<sub>$1</sub>');
-};
-
-window.moleculeCoefficientHtmlClass = function (coefficient) {
-	return {
-		'has-text-danger': coefficient <= 0,
-		'has-opacity-half': coefficient == 1,
-		'has-text-info': coefficient > 1
-	};
-};
-
-window.validateComponentSidesArray = function (sides) {
-	return Array.isArray(sides) && sides.reduce(function (prev, curr) {
-		return prev && Array.isArray(curr);
-	}, true);
-};
-
-window.isEmptyObject = function (object) {
-	return Object.keys(object).length <= 0;
-};
-
-/***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: {
-		molecule: {
-			type: Object,
-			required: true
-		}
-	},
-	data: function data() {
-		return {};
-	},
-
-	methods: {
-		moleculeHtml: function moleculeHtml(molecule) {
-			return moleculeToHtml(molecule);
-		}
-	}
-});
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(7)(
-  /* script */
-  __webpack_require__(40),
-  /* template */
-  __webpack_require__(42),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\xampp\\htdocs\\chemistry-calculator\\resources\\assets\\js\\components\\chemical-form\\MoleculeBox.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] MoleculeBox.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-401dd834", Component.options)
-  } else {
-    hotAPI.reload("data-v-401dd834", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "box has-text-centered"
-  }, [_c('h2', [_vm._v("Molecule:")]), _vm._v(" "), _c('h2', [_c('span', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.moleculeHtml(_vm.molecule.formula))
-    }
-  })])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-401dd834", module.exports)
-  }
-}
+module.exports = __webpack_require__(8);
+
 
 /***/ })
 /******/ ]);
