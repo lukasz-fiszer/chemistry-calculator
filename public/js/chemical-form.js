@@ -858,6 +858,9 @@ var chemicalFormApp = new Vue({
 			}
 			this.submittedInput = this.input;
 			this.loading = true;
+			if (this.$children[1]) {
+				this.$children[1].refresh();
+			}
 
 			axios.get('/api/chemistry-query', { params: { query: this.input } }).then(function (response) {
 				this.clear();
@@ -1951,6 +1954,19 @@ window.validateComponentSidesArray = function (sides) {
 window.isEmptyObject = function (object) {
 	return Object.keys(object).length <= 0;
 };
+
+Vue.mixin({
+	methods: {
+		refresh: function refresh() {
+			for (var child in this.$children) {
+				if (this.$children[child].refresh) {
+					this.$children[child].refresh();
+				}
+			}
+			Object.assign(this.$data, this.$options.data.apply(this));
+		}
+	}
+});
 
 /***/ }),
 /* 32 */

@@ -57,6 +57,9 @@ const chemicalFormApp = new Vue({
 			}
 			this.submittedInput = this.input;
 			this.loading = true;
+			if(this.$children[1]){
+				this.$children[1].refresh();
+			}
 
 			axios.get('/api/chemistry-query', {params: {query: this.input}})
 				.then((function(response){

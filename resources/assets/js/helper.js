@@ -19,3 +19,16 @@ window.validateComponentSidesArray = function(sides){
 window.isEmptyObject = function(object){
 	return Object.keys(object).length <= 0;
 }
+
+Vue.mixin({
+	methods: {
+		refresh(){
+			for(var child in this.$children){
+				if(this.$children[child].refresh){
+					this.$children[child].refresh();
+				}
+			}
+			Object.assign(this.$data, this.$options.data.apply(this));
+		}
+	}
+});
