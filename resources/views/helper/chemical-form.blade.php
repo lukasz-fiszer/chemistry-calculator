@@ -16,19 +16,21 @@
 
 <section class="section has-no-padding-top">
 	<div class="container">
-		<reaction-box v-if="isReactionType" :sides="sides"></reaction-box>
-		<molecule-box v-if="isMoleculeType" :molecule="molecule"></molecule-box>
-		<molecule-table v-if="hasMoleculeTable" :sides="moleculeTableSides"></molecule-table>
-		<div v-if="error" class="box has-text-danger">
-			<template v-if="response.message">
-				@{{ response.message }}
-			</template>
-			<template v-else-if="response.query">
-				Input field is empty
-			</template>
-			<template v-else>
-				Error occured
-			</template>
-		</div>
+		<transition-group name="fade" tag="div">
+			<reaction-box v-if="isReactionType" :sides="sides" key="0"></reaction-box>
+			<molecule-box v-if="isMoleculeType" :molecule="molecule" key="1"></molecule-box>
+			<molecule-table v-if="hasMoleculeTable" :sides="moleculeTableSides" key="2"></molecule-table>
+			<div v-if="error" class="box has-text-danger" key="3">
+				<template v-if="response.message">
+					@{{ response.message }}
+				</template>
+				<template v-else-if="response.query">
+					Input field is empty
+				</template>
+				<template v-else>
+					Error occured
+				</template>
+			</div>
+		</transition>
 	</div>
 </section>

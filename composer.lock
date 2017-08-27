@@ -71,7 +71,7 @@
             "source": {
                 "type": "git",
                 "url": "C:\\xampp\\htdocs\\chemistry-calculator-domain",
-                "reference": "0ce34c14ab7c54b5ee9940d50965355f362f0e6c"
+                "reference": "6e9b9868c6e7bd64e9c66315f68d45db46ab703f"
             },
             "require": {
                 "arkitekto/math": "^3.0",
@@ -102,7 +102,7 @@
                 "chemistry",
                 "domain"
             ],
-            "time": "2017-08-26 14:15:19"
+            "time": "2017-08-27 19:45:33"
         },
         {
             "name": "chippyash/assembly-builder",

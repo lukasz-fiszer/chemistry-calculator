@@ -861,6 +861,7 @@ var chemicalFormApp = new Vue({
 			if (this.$children[1]) {
 				this.$children[1].refresh();
 			}
+			this.clear();
 
 			axios.get('/api/chemistry-query', { params: { query: this.input } }).then(function (response) {
 				this.clear();

@@ -523,7 +523,7 @@
 			"file": "/C/xampp/htdocs/chemistry-calculator/resources/assets/js/chemical-form.js",
 			"settings":
 			{
-				"buffer_size": 1700,
+				"buffer_size": 2005,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,7 +532,8 @@
 			"file": "/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
 			"settings":
 			{
-				"buffer_size": 938,
+				"buffer_size": 1212,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -638,34 +639,35 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/resources/assets/css/style.css",
-		"/C/xampp/htdocs/chemistry-calculator/public/css/style.css",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/helper.js",
 		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/MoleculeTable.vue",
 		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/MoleculeTableEntry.vue",
-		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/helper.js",
+		"/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/Api/ChemistryQueryController.php",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/EntryPoint.php",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Interpreter/Interpreter.php",
+		"/C/xampp/htdocs/chemistry-calculator/app/Lib/ChemistryQuery.php",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/laravel/framework/src/Illuminate/Auth/Console/stubs/make/controllers/HomeController.stub",
+		"/C/xampp/htdocs/chemistry-calculator/public/css/style.css",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/ReactionBox.vue",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Parser/Parser.php",
+		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
+		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-form.blade.php",
+		"/C/xampp/htdocs/chemistry-calculator/resources/assets/css/style.css",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/res/PeriodicTableJSON.json",
 		"/C/xampp/htdocs/chemistry-calculator/webpack.mix.js",
 		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/MoleculeBox.vue",
-		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/components/chemical-form/ReactionBox.vue",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/helper/chemical-reaction.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/Api/ChemistryQueryController.php",
 		"/C/xampp/htdocs/chemistry-calculator/node_modules/gaze/lib/helper.js",
 		"/C/xampp/htdocs/chemistry-calculator/resources/assets/js/start.js",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/index.blade.php",
 		"/C/xampp/htdocs/chemistry-calculator/package.json",
 		"/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/IndexController.php",
 		"/C/xampp/htdocs/chemistry-calculator/resources/views/layout.blade.php",
-		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/EntryPoint.php",
-		"/C/xampp/htdocs/chemistry-calculator/app/Lib/ChemistryQuery.php",
-		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Parser/ParserExceptionBuilder.php",
-		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Parser/Parser.php",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Parser/TokenStream.php",
-		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Interpreter/Interpreter.php",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/symfony/css-selector/Parser/TokenStream.php",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/chemistry-calculator/domain/src/Chemistry/Entity/Molecule.php",
 		"/C/xampp/htdocs/chemistry-calculator/routes/api.php",
-		"/C/xampp/htdocs/chemistry-calculator/routes/web.php",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php",
 		"/C/xampp/htdocs/chemistry-calculator/vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php",
 		"/C/xampp/htdocs/chemistry-calculator/app/Http/Controllers/Controller.php",
@@ -764,8 +766,7 @@
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Support/MessageBag.php",
 		"/C/xampp/htdocs/photo2/app/Http/Controllers/TagsController.php",
 		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php",
-		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/View/Factory.php",
-		"/C/xampp/htdocs/photo2/app/Http/Controllers/AdminController.php"
+		"/C/xampp/htdocs/photo2/vendor/laravel/framework/src/Illuminate/View/Factory.php"
 	],
 	"find":
 	{
@@ -786,6 +787,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"div",
+			"template",
 			"}",
 			"isReactionType",
 			"if",
@@ -929,15 +932,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1700,
+						"buffer_size": 2005,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1319,
-								1319
+								1485,
+								1485
 							]
 						],
 						"settings":
@@ -957,15 +960,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 938,
+						"buffer_size": 1212,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								873,
+								873
 							]
 						],
 						"settings":
@@ -1032,8 +1035,84 @@
 		"selected_items":
 		[
 			[
+				"jshelepr",
+				"resources\\assets\\js\\helper.js"
+			],
+			[
 				"chemicalform",
-				"resources\\views\\helper\\chemical-form.blade.php"
+				"resources\\assets\\js\\chemical-form.js"
+			],
+			[
+				"jshelper",
+				"resources\\assets\\js\\helper.js"
+			],
+			[
+				"moleculetableenr",
+				"resources\\assets\\js\\components\\chemical-form\\MoleculeTableEntry.vue"
+			],
+			[
+				"moleculetable",
+				"resources\\assets\\js\\components\\chemical-form\\MoleculeTable.vue"
+			],
+			[
+				"cheminter",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Interpreter\\Interpreter.php"
+			],
+			[
+				"chemqeco",
+				"app\\Http\\Controllers\\Api\\ChemistryQueryController.php"
+			],
+			[
+				"chemist",
+				"app\\Http\\Controllers\\Api\\ChemistryQueryController.php"
+			],
+			[
+				"chemcontr",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Console\\stubs\\make\\controllers\\HomeController.stub"
+			],
+			[
+				"chemcontroller",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Console\\stubs\\make\\controllers\\HomeController.stub"
+			],
+			[
+				"cheminterpreter",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Interpreter\\Interpreter.php"
+			],
+			[
+				"entrypoint",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\EntryPoint.php"
+			],
+			[
+				"chemistryqu",
+				"app\\Lib\\ChemistryQuery.php"
+			],
+			[
+				"styl",
+				"public\\css\\style.css"
+			],
+			[
+				"reactionbox",
+				"resources\\assets\\js\\components\\chemical-form\\ReactionBox.vue"
+			],
+			[
+				"parexbuilder",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"parserexce",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
+			],
+			[
+				"chemparser",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\Parser.php"
+			],
+			[
+				"chemcparser",
+				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\Parser.php"
+			],
+			[
+				"routesweb",
+				"routes\\web.php"
 			],
 			[
 				"stylecss",
@@ -1046,14 +1125,6 @@
 			[
 				"style",
 				"public\\css\\style.css"
-			],
-			[
-				"jshelper",
-				"resources\\assets\\js\\helper.js"
-			],
-			[
-				"moleculetable",
-				"resources\\assets\\js\\components\\chemical-form\\MoleculeTable.vue"
 			],
 			[
 				"periodicjson",
@@ -1074,10 +1145,6 @@
 			[
 				"moleculebox",
 				"resources\\assets\\js\\components\\chemical-form\\MoleculeBox.vue"
-			],
-			[
-				"reactionbox",
-				"resources\\assets\\js\\components\\chemical-form\\ReactionBox.vue"
 			],
 			[
 				"chemquerycontrller",
@@ -1120,10 +1187,6 @@
 				"app\\Http\\Controllers\\Api\\ChemistryQueryController.php"
 			],
 			[
-				"chemparser",
-				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\Parser.php"
-			],
-			[
 				"tokenstream",
 				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\TokenStream.php"
 			],
@@ -1132,20 +1195,12 @@
 				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Interpreter\\Interpreter.php"
 			],
 			[
-				"parexbuilder",
-				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
-			],
-			[
 				"parexnuilder",
 				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Parser\\ParserExceptionBuilder.php"
 			],
 			[
 				"molecule",
 				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\Entity\\Molecule.php"
-			],
-			[
-				"entrypoint",
-				"vendor\\chemistry-calculator\\domain\\src\\Chemistry\\EntryPoint.php"
 			],
 			[
 				"urlgen",
@@ -1270,10 +1325,6 @@
 			[
 				"confapp",
 				"vendor\\psy\\psysh\\src\\Psy\\ConfigPaths.php"
-			],
-			[
-				"routesweb",
-				"routes\\web.php"
 			],
 			[
 				".env",
@@ -1494,54 +1545,6 @@
 			[
 				"lang/en/sear",
 				"resources\\lang\\en\\search.php"
-			],
-			[
-				"serchblade",
-				"resources\\views\\search.blade.php"
-			],
-			[
-				"viewfactory",
-				"vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php"
-			],
-			[
-				"responsefactory",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ResponseFactory.php"
-			],
-			[
-				"controllers/",
-				"app\\Http\\Controllers\\TagsController.php"
-			],
-			[
-				"admincontroller",
-				"app\\Http\\Controllers\\AdminController.php"
-			],
-			[
-				"pageadd",
-				"resources\\views\\page\\add.blade.php"
-			],
-			[
-				"viewssearch",
-				"resources\\views\\search.blade.php"
-			],
-			[
-				"searchcontroller",
-				"app\\Http\\Controllers\\SearchController.php"
-			],
-			[
-				"photosupload",
-				"app\\Helper\\PhotosUpload.php"
-			],
-			[
-				"photosuplaod",
-				"app\\Helper\\PhotosUpload.php"
-			],
-			[
-				"relation",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\Relation.php"
-			],
-			[
-				"hason",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\HasOneOrMany.php"
 			]
 		],
 		"width": 0.0

@@ -23,3 +23,9 @@ body{
 	width: 1.5em;
 	z-index: 100;
 }
+.fade-enter-active, .fade-leave-active{
+	transition: all 400ms;
+}
+.fade-enter, .fade-leave-to{
+	opacity: 0;
+}
