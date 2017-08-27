@@ -19,9 +19,7 @@
 		<reaction-box v-if="isReactionType" :sides="sides"></reaction-box>
 		<molecule-box v-if="isMoleculeType" :molecule="molecule"></molecule-box>
 		<molecule-table v-if="hasMoleculeTable" :sides="moleculeTableSides"></molecule-table>
-		{{-- <div v-if="error" class="box has-text-danger" style="display: none;"> --}}
 		<div v-if="error" class="box has-text-danger">
-			{{-- <template v-if="response.hasOwnProperty('message')"> --}}
 			<template v-if="response.message">
 				@{{ response.message }}
 			</template>
