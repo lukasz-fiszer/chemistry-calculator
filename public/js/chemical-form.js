@@ -1783,11 +1783,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		sides: {
 			type: Array,
 			required: true,
-			validator: function validator(sides) {
-				return Array.isArray(sides) && sides.reduce(function (prev, curr) {
-					return prev && Array.isArray(curr);
-				}, true);
-			}
+			validator: window.validateComponentSidesArray
 		}
 	},
 	data: function data() {
@@ -1833,7 +1829,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			moles: '',
-			grams: ''
+			grams: '',
+			isActiveMoles: false,
+			isActiveGrams: false
 		};
 	},
 
@@ -1862,6 +1860,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				moles = value === '0' ? 0 : NaN;
 			}
 			this.grams = this.atomicMass * moles;
+			this.isActiveMoles = true;
+			this.isActiveGrams = false;
 		},
 		updateGrams: function updateGrams(event) {
 			var value = event.target.value;
@@ -1876,10 +1876,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				grams = value === '0' ? 0 : NaN;
 			}
 			this.moles = grams / this.atomicMass;
+			this.isActiveGrams = true;
+			this.isActiveMoles = false;
 		},
 		clearInputs: function clearInputs() {
 			this.moles = '';
 			this.grams = '';
+			this.clearActiveFields();
+		},
+		clearActiveFields: function clearActiveFields() {
+			this.isActiveGrams = false;
+			this.isActiveMoles = false;
 		}
 	}
 });
@@ -2337,7 +2344,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('input', {
     staticClass: "input",
     class: {
-      'is-danger': _vm.wrongInput
+      'is-danger': _vm.wrongInput, 'is-info': _vm.isActiveMoles
     },
     attrs: {
       "type": "text",
@@ -2356,7 +2363,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('input', {
     staticClass: "input",
     class: {
-      'is-danger': _vm.wrongInput
+      'is-danger': _vm.wrongInput, 'is-info': _vm.isActiveGrams
     },
     attrs: {
       "type": "text",

@@ -19,11 +19,7 @@
 			sides: {
 				type: Array,
 				required: true,
-				validator: function(sides){
-					return Array.isArray(sides) && sides.reduce(function(prev, curr){
-						return prev && Array.isArray(curr);
-					}, true);
-				}
+				validator: window.validateComponentSidesArray
 			}
 		},
 		data(){

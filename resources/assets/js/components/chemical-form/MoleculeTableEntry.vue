@@ -3,8 +3,8 @@
 		<div class="column" :class="coefficientClass"><b>{{ coefficient }}</b></div>
 		<div class="column" v-html="moleculeHtml"></div>
 		<div class="column">{{ atomicMass }}</div>
-		<div class="column"><p class="control"><input type="text" name="moles" class="input" :class="{'is-danger': wrongInput}" :value="moles" @input="updateMoles"></p></div>
-		<div class="column"><p class="control"><input type="text" name="grams" class="input" :class="{'is-danger': wrongInput}" :value="grams" @input="updateGrams"></p></div>
+		<div class="column"><p class="control"><input type="text" name="moles" class="input" :class="{'is-danger': wrongInput, 'is-info': isActiveMoles}" :value="moles" @input="updateMoles"></p></div>
+		<div class="column"><p class="control"><input type="text" name="grams" class="input" :class="{'is-danger': wrongInput, 'is-info': isActiveGrams}" :value="grams" @input="updateGrams"></p></div>
 	</div>
 </template>
 
@@ -31,6 +31,8 @@
 			return {
 				moles: '',
 				grams: '',
+				isActiveMoles: false,
+				isActiveGrams: false
 			};
 		},
 		computed: {
@@ -58,7 +60,8 @@
 					moles = value === '0' ? 0 : NaN;
 				}
 				this.grams = this.atomicMass * moles;
-
+				this.isActiveMoles = true;
+				this.isActiveGrams = false;
 			},
 			updateGrams(event){
 				let value = event.target.value;
@@ -73,10 +76,17 @@
 					grams = value === '0' ? 0 : NaN;
 				}
 				this.moles = grams / this.atomicMass;
+				this.isActiveGrams = true;
+				this.isActiveMoles = false;
 			},
 			clearInputs(){
 				this.moles = '';
 				this.grams = '';
+				this.clearActiveFields();
+			},
+			clearActiveFields(){
+				this.isActiveGrams = false;
+				this.isActiveMoles = false;
 			}
 		}
 	}

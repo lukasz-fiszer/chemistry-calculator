@@ -29,3 +29,9 @@ body{
 .fade-enter, .fade-leave-to{
 	opacity: 0;
 }
+.input[name="moles"]:focus, .input[name="grams"]:focus{
+	border-color: #00d1b2;
+}
+.input[name="moles"].is-danger, .input[name="grams"].is-danger{
+	border-color: #ff3860;
+}
