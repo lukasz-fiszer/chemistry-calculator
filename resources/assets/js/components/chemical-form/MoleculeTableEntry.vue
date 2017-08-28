@@ -49,40 +49,26 @@
 		methods: {
 			updateMoles(event){
 				let value = event.target.value;
-				this.moles = value;
-				if(value === ''){
-					this.clearInputs();
-					this.$emit('clear');
+				if(!this.valueInput(value, 'moles')){
 					return;
 				}
 
-				let moles = Number(value);
-				if(moles === 0){
-					moles = value === '0' ? 0 : NaN;
-				}
+				let moles = this.getNumberFromValueInput(value);
 				this.grams = this.atomicMass * moles;
-				this.isActiveMoles = true;
-				this.isActiveGrams = false;
+				this.setActiveField('moles');
 				if(this.coefficient !== 0){
 					this.$emit('updateMoles', moles / this.coefficient);
 				}
 			},
 			updateGrams(event){
 				let value = event.target.value;
-				this.grams = value;
-				if(value === ''){
-					this.clearInputs();
-					this.$emit('clear');
+				if(!this.valueInput(value, 'grams')){
 					return;
 				}
 
-				let grams = Number(value);
-				if(grams === 0){
-					grams = value === '0' ? 0 : NaN;
-				}
+				let grams = this.getNumberFromValueInput(value);
 				this.moles = grams / this.atomicMass;
-				this.isActiveGrams = true;
-				this.isActiveMoles = false;
+				this.setActiveField('grams');
 			},
 			clearInputs(){
 				this.moles = '';
@@ -92,6 +78,36 @@
 			clearActiveFields(){
 				this.isActiveGrams = false;
 				this.isActiveMoles = false;
+			},
+			setActiveField(field){
+				if(field == 'grams'){
+					this.isActiveGrams = true;
+					this.isActiveMoles = false;
+				}
+				else if(field == 'moles'){
+					this.isActiveMoles = true;
+					this.isActiveGrams = false;
+				}
+				else{
+					this.isActiveMoles = false;
+					this.isActiveGrams = false;
+				}
+			},
+			valueInput(value, attribute){
+				this[attribute] = value;
+				if(value === ''){
+					this.clearInputs();
+					this.$emit('clear');
+					return false;
+				}
+				return true;
+			},
+			getNumberFromValueInput(value){
+				let number = Number(value);
+				if(number === 0){
+					number = value === '0' ? 0 : NaN;
+				}
+				return number;
 			}
 		}
 	}

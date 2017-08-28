@@ -1775,11 +1775,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -1794,13 +1789,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var sides = this.sides;
 			var molecules = [];
 			for (var i = 0; i < sides.length; i++) {
-				/*for(let j = 0; j < sides[i].length; j++){
-    	molecules.push(sides[i][j]);
-    }*/
-				/*molecules = molecules.concat(sides[i]);
-    if(i != sides.length - 1){
-    	molecules[molecules.length - 1].hasBottomBorder = true;
-    }*/
 				for (var j = 0; j < sides[i].length; j++) {
 					var molecule = sides[i][j];
 					molecule.hasBottomBorder = j == sides[i].length - 1 && i != sides.length - 1 ? true : false;
@@ -1864,9 +1852,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					}
 				}
 			}
-		},
-		makeKey: function makeKey(side, index) {
-			return 'side' + side + 'index' + index;
 		}
 	}
 });
@@ -1929,40 +1914,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		updateMoles: function updateMoles(event) {
 			var value = event.target.value;
-			this.moles = value;
-			if (value === '') {
-				this.clearInputs();
-				this.$emit('clear');
+			if (!this.valueInput(value, 'moles')) {
 				return;
 			}
 
-			var moles = Number(value);
-			if (moles === 0) {
-				moles = value === '0' ? 0 : NaN;
-			}
+			var moles = this.getNumberFromValueInput(value);
 			this.grams = this.atomicMass * moles;
-			this.isActiveMoles = true;
-			this.isActiveGrams = false;
+			this.setActiveField('moles');
 			if (this.coefficient !== 0) {
 				this.$emit('updateMoles', moles / this.coefficient);
 			}
 		},
 		updateGrams: function updateGrams(event) {
 			var value = event.target.value;
-			this.grams = value;
-			if (value === '') {
-				this.clearInputs();
-				this.$emit('clear');
+			if (!this.valueInput(value, 'grams')) {
 				return;
 			}
 
-			var grams = Number(value);
-			if (grams === 0) {
-				grams = value === '0' ? 0 : NaN;
-			}
+			var grams = this.getNumberFromValueInput(value);
 			this.moles = grams / this.atomicMass;
-			this.isActiveGrams = true;
-			this.isActiveMoles = false;
+			this.setActiveField('grams');
 		},
 		clearInputs: function clearInputs() {
 			this.moles = '';
@@ -1972,6 +1943,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		clearActiveFields: function clearActiveFields() {
 			this.isActiveGrams = false;
 			this.isActiveMoles = false;
+		},
+		setActiveField: function setActiveField(field) {
+			if (field == 'grams') {
+				this.isActiveGrams = true;
+				this.isActiveMoles = false;
+			} else if (field == 'moles') {
+				this.isActiveMoles = true;
+				this.isActiveGrams = false;
+			} else {
+				this.isActiveMoles = false;
+				this.isActiveGrams = false;
+			}
+		},
+		valueInput: function valueInput(value, attribute) {
+			this[attribute] = value;
+			if (value === '') {
+				this.clearInputs();
+				this.$emit('clear');
+				return false;
+			}
+			return true;
+		},
+		getNumberFromValueInput: function getNumberFromValueInput(value) {
+			var number = Number(value);
+			if (number === 0) {
+				number = value === '0' ? 0 : NaN;
+			}
+			return number;
 		}
 	}
 });
