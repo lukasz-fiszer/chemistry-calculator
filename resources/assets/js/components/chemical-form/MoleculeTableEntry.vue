@@ -52,6 +52,7 @@
 				this.moles = value;
 				if(value === ''){
 					this.clearInputs();
+					this.$emit('clear');
 					return;
 				}
 
@@ -62,12 +63,16 @@
 				this.grams = this.atomicMass * moles;
 				this.isActiveMoles = true;
 				this.isActiveGrams = false;
+				if(this.coefficient !== 0){
+					this.$emit('updateMoles', moles / this.coefficient);
+				}
 			},
 			updateGrams(event){
 				let value = event.target.value;
 				this.grams = value;
 				if(value === ''){
 					this.clearInputs();
+					this.$emit('clear');
 					return;
 				}
 

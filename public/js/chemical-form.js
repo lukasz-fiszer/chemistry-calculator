@@ -1777,6 +1777,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -1786,8 +1789,85 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			validator: window.validateComponentSidesArray
 		}
 	},
+	computed: {
+		flattenedSides: function flattenedSides() {
+			var sides = this.sides;
+			var molecules = [];
+			for (var i = 0; i < sides.length; i++) {
+				/*for(let j = 0; j < sides[i].length; j++){
+    	molecules.push(sides[i][j]);
+    }*/
+				/*molecules = molecules.concat(sides[i]);
+    if(i != sides.length - 1){
+    	molecules[molecules.length - 1].hasBottomBorder = true;
+    }*/
+				for (var j = 0; j < sides[i].length; j++) {
+					var molecule = sides[i][j];
+					molecule.hasBottomBorder = j == sides[i].length - 1 && i != sides.length - 1 ? true : false;
+					molecules.push(molecule);
+				}
+			}
+			return molecules;
+		}
+	},
 	data: function data() {
 		return {};
+	},
+
+	methods: {
+		clearEntries: function clearEntries() {
+			var _iteratorNormalCompletion = true;
+			var _didIteratorError = false;
+			var _iteratorError = undefined;
+
+			try {
+				for (var _iterator = this.$children[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+					var entry = _step.value;
+
+					entry.clearInputs();
+				}
+			} catch (err) {
+				_didIteratorError = true;
+				_iteratorError = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion && _iterator.return) {
+						_iterator.return();
+					}
+				} finally {
+					if (_didIteratorError) {
+						throw _iteratorError;
+					}
+				}
+			}
+		},
+		updateMoles: function updateMoles(molesRation) {
+			var _iteratorNormalCompletion2 = true;
+			var _didIteratorError2 = false;
+			var _iteratorError2 = undefined;
+
+			try {
+				for (var _iterator2 = this.$children[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+					var entry = _step2.value;
+				}
+			} catch (err) {
+				_didIteratorError2 = true;
+				_iteratorError2 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion2 && _iterator2.return) {
+						_iterator2.return();
+					}
+				} finally {
+					if (_didIteratorError2) {
+						throw _iteratorError2;
+					}
+				}
+			}
+		},
+		makeKey: function makeKey(side, index) {
+			return 'side' + side + 'index' + index;
+		}
 	}
 });
 
@@ -1852,6 +1932,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.moles = value;
 			if (value === '') {
 				this.clearInputs();
+				this.$emit('clear');
 				return;
 			}
 
@@ -1862,12 +1943,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.grams = this.atomicMass * moles;
 			this.isActiveMoles = true;
 			this.isActiveGrams = false;
+			if (this.coefficient !== 0) {
+				this.$emit('updateMoles', moles / this.coefficient);
+			}
 		},
 		updateGrams: function updateGrams(event) {
 			var value = event.target.value;
 			this.grams = value;
 			if (value === '') {
 				this.clearInputs();
+				this.$emit('clear');
 				return;
 			}
 
@@ -2411,17 +2496,18 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _vm._l((_vm.sides), function(side, sideNumber) {
-    return _vm._l((side), function(molecule, index) {
-      return _c('molecule-table-entry', {
-        key: index,
-        attrs: {
-          "coefficient": molecule.coefficient,
-          "molecule": molecule.formula,
-          "atomic-mass": molecule.atomicMass,
-          "has-bottom-border": index == side.length - 1 && sideNumber != _vm.sides.length - 1
-        }
-      })
+  return _c('div', [_vm._m(0), _vm._v(" "), _vm._l((_vm.flattenedSides), function(molecule, index) {
+    return _c('molecule-table-entry', {
+      key: index,
+      attrs: {
+        "coefficient": molecule.coefficient,
+        "molecule": molecule.formula,
+        "atomic-mass": molecule.atomicMass,
+        "has-bottom-border": molecule.hasBottomBorder
+      },
+      on: {
+        "clear": _vm.clearEntries
+      }
     })
   })], 2)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
