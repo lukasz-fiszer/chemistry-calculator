@@ -56,9 +56,7 @@
 				let moles = this.getNumberFromValueInput(value);
 				this.grams = this.atomicMass * moles;
 				this.setActiveField('moles');
-				if(this.coefficient !== 0){
-					this.$emit('updateMoles', moles / this.coefficient);
-				}
+				this.$emit('updateMoles', this, moles / this.coefficient);
 			},
 			updateGrams(event){
 				let value = event.target.value;
@@ -69,6 +67,7 @@
 				let grams = this.getNumberFromValueInput(value);
 				this.moles = grams / this.atomicMass;
 				this.setActiveField('grams');
+				this.$emit('updateMoles', this, this.moles / this.coefficient);
 			},
 			clearInputs(){
 				this.moles = '';
@@ -89,8 +88,7 @@
 					this.isActiveGrams = false;
 				}
 				else{
-					this.isActiveMoles = false;
-					this.isActiveGrams = false;
+					this.clearActiveFields();
 				}
 			},
 			valueInput(value, attribute){

@@ -805,6 +805,8 @@ Vue.component('molecule-table', __webpack_require__(35));
 Vue.component('reaction-box', __webpack_require__(37));
 Vue.component('molecule-box', __webpack_require__(34));
 
+var bus = new Vue();
+
 var chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
@@ -1829,7 +1831,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				}
 			}
 		},
-		updateMoles: function updateMoles(molesRation) {
+		updateMoles: function updateMoles(target, molesRatio) {
 			var _iteratorNormalCompletion2 = true;
 			var _didIteratorError2 = false;
 			var _iteratorError2 = undefined;
@@ -1837,6 +1839,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			try {
 				for (var _iterator2 = this.$children[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 					var entry = _step2.value;
+
+					if (entry != target) {
+						entry.moles = entry.coefficient * molesRatio;
+						entry.grams = entry.moles * entry.atomicMass;
+						entry.clearActiveFields();
+					}
 				}
 			} catch (err) {
 				_didIteratorError2 = true;
@@ -1921,9 +1929,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var moles = this.getNumberFromValueInput(value);
 			this.grams = this.atomicMass * moles;
 			this.setActiveField('moles');
-			if (this.coefficient !== 0) {
-				this.$emit('updateMoles', moles / this.coefficient);
-			}
+			this.$emit('updateMoles', this, moles / this.coefficient);
 		},
 		updateGrams: function updateGrams(event) {
 			var value = event.target.value;
@@ -1934,6 +1940,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var grams = this.getNumberFromValueInput(value);
 			this.moles = grams / this.atomicMass;
 			this.setActiveField('grams');
+			this.$emit('updateMoles', this, this.moles / this.coefficient);
 		},
 		clearInputs: function clearInputs() {
 			this.moles = '';
@@ -1952,8 +1959,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				this.isActiveMoles = true;
 				this.isActiveGrams = false;
 			} else {
-				this.isActiveMoles = false;
-				this.isActiveGrams = false;
+				this.clearActiveFields();
 			}
 		},
 		valueInput: function valueInput(value, attribute) {
@@ -2505,7 +2511,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "has-bottom-border": molecule.hasBottomBorder
       },
       on: {
-        "clear": _vm.clearEntries
+        "clear": _vm.clearEntries,
+        "updateMoles": _vm.updateMoles
       }
     })
   })], 2)

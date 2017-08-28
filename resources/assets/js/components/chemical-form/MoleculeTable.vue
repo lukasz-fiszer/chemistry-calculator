@@ -7,7 +7,7 @@
 			<div class="column"><b>Moles</b></div>
 			<div class="column"><b>Grams</b></div>
 		</div>
-		<molecule-table-entry v-for="(molecule, index) in flattenedSides" @clear="clearEntries" :key="index" :coefficient="molecule.coefficient" :molecule="molecule.formula" :atomic-mass="molecule.atomicMass" :has-bottom-border="molecule.hasBottomBorder"></molecule-table-entry>
+		<molecule-table-entry v-for="(molecule, index) in flattenedSides" @clear="clearEntries" @updateMoles="updateMoles" :key="index" :coefficient="molecule.coefficient" :molecule="molecule.formula" :atomic-mass="molecule.atomicMass" :has-bottom-border="molecule.hasBottomBorder"></molecule-table-entry>
 	</div>
 </template>
 
@@ -43,9 +43,13 @@
 					entry.clearInputs();
 				}
 			},
-			updateMoles(molesRation){
+			updateMoles(target, molesRatio){
 				for(let entry of this.$children){
-
+					if(entry != target){
+						entry.moles = entry.coefficient * molesRatio;
+						entry.grams = entry.moles * entry.atomicMass;
+						entry.clearActiveFields();
+					}
 				}
 			}
 		}

@@ -5,6 +5,8 @@ Vue.component('molecule-table', require('./components/chemical-form/MoleculeTabl
 Vue.component('reaction-box', require('./components/chemical-form/ReactionBox.vue'));
 Vue.component('molecule-box', require('./components/chemical-form/MoleculeBox.vue'));
 
+let bus = new Vue();
+
 const chemicalFormApp = new Vue({
 	el: '.chemical-form-app',
 	data: {
