@@ -10,8 +10,9 @@
 @endsection
 
 @section('content')
-	@include('helper.frontpage-header')
-	<div class="chemical-form-app">
-		@include('helper.chemical-form')
-	</div>
+	<section class="section">
+		<div class="container content">
+			<h2>Contact page</h2>
+		</div>
+	</section>
 @endsection

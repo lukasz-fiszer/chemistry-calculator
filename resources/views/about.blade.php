@@ -10,8 +10,31 @@
 @endsection
 
 @section('content')
-	@include('helper.frontpage-header')
-	<div class="chemical-form-app">
-		@include('helper.chemical-form')
-	</div>
+	<section class="section">
+		<article class="container content">
+			<h2>About and how does it work</h2>
+			<section>
+				<h3>Table of contents</h3>
+				<p>
+					<ul>
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#algebraic-method">Algebraic method</a></li>
+					</ul>
+				</p>
+			</section>
+			<hr />
+			<section id="introduction">
+				<h3>Introduction</h3>
+				<p>
+					
+				</p>
+			</section>
+			<section id="algebraic-method">
+				<h3>Algebraic method</h3>
+				<p>
+					
+				</p>
+			</section>
+		</article>
+	</section>
 @endsection
