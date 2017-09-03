@@ -35,3 +35,7 @@ body{
 .input[name="moles"].is-danger, .input[name="grams"].is-danger{
 	border-color: #ff3860;
 }
+.noscript-alert{
+	display: none;
+	padding: 3rem 1.5rem;
+}

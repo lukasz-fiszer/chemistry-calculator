@@ -11,6 +11,7 @@
 
 @section('content')
 	@include('helper.frontpage-header')
+	@include('helper.noscript-alert')
 	<div class="chemical-form-app">
 		@include('helper.chemical-form')
 	</div>
