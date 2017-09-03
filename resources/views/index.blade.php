@@ -5,13 +5,14 @@
 @endsection
 
 @section('head_elements')
+	@parent
 	<link rel="canonical" href="{{ route('index') }}">
 	<meta name="description" content="Balance chemical equations online, calculate stoichiometric coefficients and find molar masses">
 @endsection
 
 @section('content')
 	@include('helper.frontpage-header')
-	@include('helper.noscript-alert')
+	@include('layout.noscript-alert')
 	<div class="chemical-form-app">
 		@include('helper.chemical-form')
 	</div>

@@ -12,13 +12,6 @@
 	<meta name="author" content="Łukasz Fiszer">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}">
-	<noscript>
-		<style type="text/css">
-			.noscript-alert{
-				display: block;
-			}
-		</style>
-	</noscript>
 @endsection
 
 @section('body')
