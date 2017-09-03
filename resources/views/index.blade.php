@@ -4,6 +4,11 @@
 	@parent - Balance chemical equations, calculate molar masses and more
 @endsection
 
+@section('head_elements')
+	<link rel="canonical" href="{{ route('index') }}">
+	<meta name="description" content="Balance chemical equations online, calculate stoichiometric coefficients and find molar masses">
+@endsection
+
 @section('content')
 	@include('helper.frontpage-header')
 	<div class="chemical-form-app">

@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'IndexController@index')->name('index');
+
+Route::get('/about', 'IndexController@about')->name('about');
+Route::get('/contact', 'IndexController@contact')->name('contact');
