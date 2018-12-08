@@ -38,3 +38,9 @@ body{
 .noscript-alert{
 	display: none;
 }
+.about-description p{
+	margin-bottom: 1em;
+}
+.about-description code{
+	display: inline-block;
+}
